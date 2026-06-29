@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -36 100 72" width="200" height="144">
+  <title>文语 Primary Logo - Color</title>
+  <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="#1E5FBF"/>
+  <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="#1E5FBF"/>
+  <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="#00C9A7"/>
+  <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="#00C9A7"/>
+</svg>

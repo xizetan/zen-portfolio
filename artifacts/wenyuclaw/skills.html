@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="文语 Skills 市场 · 企业级 AI 技能能力目录，按需为你定制" />
+  <title>Skills 市场 · 文语 WenyuClaw</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -36 100 72'%3E%3Cpath d='M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z' fill='%231E5FBF'/%3E%3Cpath d='M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z' fill='%231E5FBF'/%3E%3Cpath d='M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z' fill='%2300C9A7'/%3E%3Cpath d='M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z' fill='%2300C9A7'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ============================================
+       VIS · CSS Variables
+       ============================================ */
+    :root {
+      --wy-primary:        #1E5FBF;
+      --wy-accent:         #00C9A7;
+      --wy-ink:            #0A2540;
+
+      --wy-primary-50:     #F0F5FD;
+      --wy-primary-100:    #D5E3F7;
+      --wy-primary-700:    #103873;
+
+      --wy-accent-50:      #E6FAF5;
+      --wy-accent-100:     #B8F0E0;
+      --wy-accent-600:     #00A688;
+      --wy-accent-700:     #007D66;
+
+      --wy-ink-400:        #5A6B7C;
+      --wy-ink-300:        #8899AA;
+      --wy-ink-200:        #B8C1CC;
+      --wy-ink-100:        #E0E5EB;
+      --wy-ink-50:         #F5F7FA;
+
+      --wy-success:        #2BA552;
+      --wy-success-50:     #EBF7EE;
+      --wy-success-700:    #155428;
+      --wy-warning:        #EF9F27;
+      --wy-warning-50:     #FEF6E6;
+      --wy-warning-700:    #BA7517;
+
+      --wy-white:          #FFFFFF;
+      --wy-bg:             #FAFBFC;
+
+      --wy-font-cn:    'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --wy-font-en:    'Inter', 'Helvetica Neue', sans-serif;
+      --wy-font-mono:  'JetBrains Mono', 'Consolas', monospace;
+
+      --wy-max-width:  1280px;
+      --wy-pad-x:      clamp(20px, 5vw, 80px);
+    }
+
+    /* ============================================
+       Reset & Base
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--wy-font-cn);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--wy-ink);
+      background: var(--wy-white);
+      letter-spacing: 1px;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    img, svg { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    ::selection { background: var(--wy-accent); color: var(--wy-white); }
+
+    .wy-container {
+      max-width: var(--wy-max-width);
+      margin: 0 auto;
+      padding-left: var(--wy-pad-x);
+      padding-right: var(--wy-pad-x);
+    }
+
+    /* ============================================
+       Buttons
+       ============================================ */
+    .wy-button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 5px;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 2px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: var(--wy-font-cn);
+      white-space: nowrap;
+    }
+    .wy-button-primary {
+      background: var(--wy-primary);
+      color: var(--wy-white);
+    }
+    .wy-button-primary:hover {
+      background: var(--wy-primary-700);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -8px rgba(30, 95, 191, 0.5);
+    }
+    .wy-button-secondary {
+      background: transparent;
+      color: var(--wy-ink);
+      border: 1px solid var(--wy-ink-200);
+    }
+    .wy-button-secondary:hover {
+      border-color: var(--wy-ink);
+      background: var(--wy-white);
+    }
+    .wy-button-ghost {
+      background: transparent;
+      color: var(--wy-primary);
+      border: 1px solid var(--wy-primary-100);
+    }
+    .wy-button-ghost:hover {
+      background: var(--wy-primary-50);
+      border-color: var(--wy-primary);
+    }
+    .wy-button-arrow { transition: transform 0.25s ease; }
+    .wy-button:hover .wy-button-arrow { transform: translateX(4px); }
+
+    /* ============================================
+       NAV
+       ============================================ */
+    .wy-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .wy-nav.is-scrolled {
+      border-bottom-color: var(--wy-ink-100);
+      background: rgba(255, 255, 255, 0.95);
+    }
+    .wy-nav-inner {
+      max-width: var(--wy-max-width);
+      margin: 0 auto;
+      padding: 0 var(--wy-pad-x);
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .wy-logo { display: flex; align-items: center; gap: 12px; }
+    .wy-logo svg { width: 38px; height: auto; }
+    .wy-logo-text {
+      font-size: 18px; font-weight: 500; letter-spacing: 4px; color: var(--wy-ink);
+    }
+    .wy-logo-text-en {
+      font-family: var(--wy-font-en);
+      font-size: 11px; letter-spacing: 4px; color: var(--wy-ink-400);
+      margin-top: 2px; font-weight: 400;
+    }
+    .wy-logo-stack { display: flex; flex-direction: column; line-height: 1; }
+
+    .wy-nav-menu { display: flex; gap: 36px; align-items: center; }
+    .wy-nav-menu a {
+      font-size: 13px; letter-spacing: 2px; color: var(--wy-ink-400);
+      transition: color 0.2s ease; position: relative; padding: 6px 0;
+    }
+    .wy-nav-menu a.is-active { color: var(--wy-ink); font-weight: 600; }
+    .wy-nav-menu a:hover { color: var(--wy-primary); }
+    .wy-nav-menu a::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      width: 0; height: 1px; background: var(--wy-primary);
+      transition: width 0.25s ease;
+    }
+    .wy-nav-menu a:hover::after, .wy-nav-menu a.is-active::after { width: 100%; }
+
+    .wy-nav-cta { display: flex; gap: 12px; align-items: center; }
+    .wy-nav-cta .wy-button { padding: 9px 18px; font-size: 12px; }
+
+    /* 顶部双色细条 */
+    .wy-topbar {
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; height: 4px; z-index: 3;
+    }
+    .wy-topbar > div:first-child { width: 60%; background: var(--wy-primary); }
+    .wy-topbar > div:last-child  { width: 40%; background: var(--wy-primary-700); }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .wy-skills-hero {
+      position: relative;
+      padding: 152px 0 80px;
+      background: var(--wy-bg);
+      overflow: hidden;
+      border-bottom: 1px solid var(--wy-ink-100);
+    }
+    .wy-skills-hero-grid {
+      position: absolute; inset: 0; opacity: 0.5; pointer-events: none;
+    }
+    .wy-skills-hero-inner {
+      position: relative; z-index: 2;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .wy-skills-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--wy-font-en);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 6px; text-transform: uppercase;
+      color: var(--wy-accent-700);
+      margin-bottom: 28px;
+    }
+    .wy-skills-hero-eyebrow::before,
+    .wy-skills-hero-eyebrow::after {
+      content: ''; width: 40px; height: 1px; background: var(--wy-accent);
+    }
+    .wy-skills-hero-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      letter-spacing: 6px;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+    .wy-skills-hero-title em {
+      font-style: normal; color: var(--wy-primary);
+    }
+    .wy-skills-hero-desc {
+      font-size: 17px;
+      color: var(--wy-ink-400);
+      letter-spacing: 1.5px;
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+
+    .wy-skills-hero-stats {
+      display: none;  /* 旧三联数字已废弃，保留以备复用 */
+    }
+    .wy-skills-hero-stat { text-align: center; }
+    .wy-skills-hero-stat-num {
+      font-family: var(--wy-font-mono); font-weight: 500;
+      font-size: 28px; color: var(--wy-ink);
+      letter-spacing: 0; line-height: 1;
+      display: flex; align-items: baseline; justify-content: center; gap: 4px;
+    }
+    .wy-skills-hero-stat-num-suffix { font-size: 14px; color: var(--wy-accent-600); }
+    .wy-skills-hero-stat-label {
+      font-size: 11px; color: var(--wy-ink-400);
+      letter-spacing: 2px; margin-top: 8px;
+    }
+
+    /* ============================================
+       CAPABILITY ORCHESTRATION · 能力编排可视化
+       ============================================ */
+    .wy-orchestration {
+      margin-top: 24px;
+      max-width: 920px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .wy-orch-stage {
+      position: relative;
+      padding: 22px 22px 18px;
+      background: var(--wy-white);
+      border: 1px solid var(--wy-ink-100);
+      border-radius: 10px;
+      box-shadow: 0 20px 40px -24px rgba(10, 37, 64, 0.1);
+      overflow: hidden;
+    }
+
+    /* 背景大 Logo · 呼吸态 */
+    .wy-orch-bg-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: auto;
+      transform: translate(-50%, -50%);
+      color: var(--wy-primary);
+      opacity: 0.04;
+      pointer-events: none;
+      animation: orchLogoPulse 4s ease-in-out infinite;
+    }
+    @keyframes orchLogoPulse {
+      0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) scale(1); }
+      50%      { opacity: 0.07; transform: translate(-50%, -50%) scale(1.05); }
+    }
+
+    /* 连接线 SVG · 虚线 + 流动点 */
+    .wy-orch-lines {
+      position: absolute;
+      inset: 22px;
+      width: calc(100% - 44px);
+      height: calc(100% - 40px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 5 卡片网格 */
+    .wy-orch-cards {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    /* 普通卡片 · 信息密度提升 */
+    .wy-orch-card {
+      position: relative;
+      padding: 14px 12px 12px;
+      background: var(--wy-white);
+      border: 1px solid var(--wy-ink-100);
+      border-radius: 6px;
+      text-align: center;
+      cursor: default;
+      display: flex; flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    /* 顶部 accent 色细条 */
+    .wy-orch-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%; right: 20%;
+      height: 2px;
+      background: var(--wy-primary);
+      border-radius: 0 0 2px 2px;
+      opacity: 0.6;
+    }
+
+    .wy-orch-card-icon {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--wy-primary);
+      background: var(--wy-primary-50);
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+    .wy-orch-card-icon svg {
+      width: 16px; height: 16px;
+    }
+
+    .wy-orch-card-cn {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: var(--wy-ink);
+      line-height: 1.3;
+    }
+    .wy-orch-card-en {
+      font-family: var(--wy-font-en);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      color: var(--wy-ink-300);
+      font-weight: 500;
+    }
+    .wy-orch-card-desc {
+      font-size: 11px;
+      color: var(--wy-ink-400);
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      margin-top: 4px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--wy-ink-100);
+      width: 100%;
+    }
+
+    /* 中心位卡片 · 流程编排（中枢） */
+    .wy-orch-card.is-center {
+      background:
+        radial-gradient(circle at center, var(--wy-primary-50) 0%, var(--wy-white) 100%);
+      border-color: var(--wy-primary);
+      box-shadow: 0 0 0 3px rgba(30, 95, 191, 0.08);
+    }
+    .wy-orch-card.is-center::before {
+      background: var(--wy-accent);
+      left: 12%; right: 12%;
+      height: 3px;
+      opacity: 1;
+    }
+    .wy-orch-card.is-center .wy-orch-card-icon {
+      background: var(--wy-primary);
+      color: var(--wy-white);
+      box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15);
+    }
+    /* 中心位脉冲环 */
+    .wy-orch-card.is-center::after {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      border: 1px solid var(--wy-accent);
+      border-radius: 6px;
+      opacity: 0;
+      animation: orchCenterPulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes orchCenterPulse {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.03); }
+    }
+    .wy-orch-card.is-center .wy-orch-card-cn {
+      color: var(--wy-primary);
+    }
+    .wy-orch-card.is-center .wy-orch-card-en {
+      color: var(--wy-primary-700);
+    }
+
+    /* 底部 · 衔接下方卡片网格 */
+    .wy-orch-foot {
+      margin-top: 16px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--wy-ink-400);
+    }
+    .wy-orch-foot-hex {
+      color: var(--wy-accent);
+      font-size: 13px;
+      animation: orchFootPulse 2s ease-in-out infinite;
+    }
+    .wy-orch-foot-arrow {
+      color: var(--wy-accent);
+      animation: orchArrowBounce 2s ease-in-out infinite;
+    }
+    @keyframes orchFootPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes orchArrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+
+    /* ============================================
+       SEARCH + FILTER
+       ============================================ */
+    .wy-skills-toolbar {
+      padding: 48px 0 24px;
+      background: var(--wy-white);
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      border-bottom: 1px solid var(--wy-ink-100);
+    }
+    .wy-skills-toolbar.is-stuck {
+      box-shadow: 0 4px 12px -4px rgba(10, 37, 64, 0.06);
+    }
+
+    .wy-skills-search {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    .wy-skills-search-icon {
+      position: absolute;
+      left: 18px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--wy-ink-300);
+      pointer-events: none;
+    }
+    .wy-skills-search-input {
+      width: 100%;
+      padding: 14px 50px 14px 50px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: var(--wy-ink);
+      background: var(--wy-bg);
+      border: 1px solid var(--wy-ink-100);
+      border-radius: 6px;
+      font-family: var(--wy-font-cn);
+      outline: none;
+      transition: all 0.25s ease;
+    }
+    .wy-skills-search-input::placeholder { color: var(--wy-ink-300); }
+    .wy-skills-search-input:focus {
+      background: var(--wy-white);
+      border-color: var(--wy-primary);
+      box-shadow: 0 0 0 3px var(--wy-primary-50);
+    }
+    .wy-skills-search-clear {
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--wy-ink-100);
+      color: var(--wy-ink-400);
+      display: none;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .wy-skills-search-clear.is-visible { display: flex; }
+    .wy-skills-search-clear:hover {
+      background: var(--wy-ink-200);
+      color: var(--wy-ink);
+    }
+
+    .wy-skills-filters {
+      display: flex; gap: 4px; align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .wy-skills-filter {
+      padding: 8px 16px;
+      font-size: 12px; letter-spacing: 1.5px;
+      color: var(--wy-ink-400);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--wy-font-cn);
+    }
+    .wy-skills-filter:hover {
+      color: var(--wy-ink);
+      background: var(--wy-ink-50);
+    }
+    .wy-skills-filter.is-active {
+      color: var(--wy-primary);
+      background: var(--wy-primary-50);
+      border-color: var(--wy-primary-100);
+      font-weight: 500;
+    }
+    .wy-skills-filter-count {
+      font-family: var(--wy-font-mono);
+      font-size: 11px;
+      color: var(--wy-ink-300);
+      margin-left: 4px;
+    }
+    .wy-skills-filter.is-active .wy-skills-filter-count {
+      color: var(--wy-accent-600);
+    }
+
+    /* ============================================
+       SKILLS GRID
+       ============================================ */
+    .wy-skills-main {
+      padding: 56px 0 100px;
+      background: var(--wy-bg);
+      min-height: 60vh;
+    }
+
+    .wy-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .wy-skill-card {
+      position: relative;
+      padding: 24px;
+      background: var(--wy-white);
+      border: 1px solid var(--wy-ink-100);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      text-align: left;
+    }
+    .wy-skill-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--wy-primary);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .wy-skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--wy-primary-100);
+      box-shadow: 0 16px 32px -16px rgba(30, 95, 191, 0.2);
+    }
+    .wy-skill-card:hover::before { transform: scaleX(1); }
+
+    .wy-skill-card-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .wy-skill-card-icon {
+      width: 36px; height: 36px;
+      background: var(--wy-primary-50);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--wy-primary);
+      flex-shrink: 0;
+    }
+    .wy-skill-card-status {
+      font-family: var(--wy-font-en);
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .wy-skill-card-status.is-ready { background: var(--wy-success-50); color: var(--wy-success-700); }
+    .wy-skill-card-status.is-beta { background: var(--wy-warning-50); color: var(--wy-warning-700); }
+    .wy-skill-card-status.is-planning { background: var(--wy-ink-50); color: var(--wy-ink-400); }
+
+    .wy-skill-card-name {
+      font-size: 16px; font-weight: 500;
+      letter-spacing: 2px; color: var(--wy-ink);
+      margin-bottom: 2px;
+    }
+    .wy-skill-card-slug {
+      font-family: var(--wy-font-mono);
+      font-size: 11px; letter-spacing: 0;
+      color: var(--wy-ink-300);
+      margin-bottom: 14px;
+    }
+    .wy-skill-card-pitch {
+      font-size: 13px;
+      color: var(--wy-ink-400);
+      letter-spacing: 0.8px;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .wy-skill-card-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--wy-ink-100);
+      gap: 12px;
+    }
+    .wy-skill-card-cat {
+      font-size: 11px; letter-spacing: 1.5px;
+      color: var(--wy-ink-400);
+    }
+    .wy-skill-card-action {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; color: var(--wy-primary);
+      letter-spacing: 1px;
+      transition: gap 0.2s ease;
+    }
+    .wy-skill-card:hover .wy-skill-card-action {
+      gap: 7px;
+    }
+
+    /* 空状态 */
+    .wy-skills-empty {
+      grid-column: 1 / -1;
+      padding: 80px 40px;
+      text-align: center;
+      color: var(--wy-ink-400);
+    }
+    .wy-skills-empty-icon {
+      width: 56px; height: 56px;
+      background: var(--wy-ink-50);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--wy-ink-300);
+    }
+    .wy-skills-empty-text {
+      font-size: 14px; letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .wy-skills-empty-hint {
+      font-size: 12px; color: var(--wy-ink-300);
+      letter-spacing: 1px;
+    }
+
+    /* 计数 */
+    .wy-skills-count {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--wy-ink-100);
+      font-size: 12px;
+      color: var(--wy-ink-400);
+      letter-spacing: 2px;
+    }
+    .wy-skills-count strong {
+      color: var(--wy-primary);
+      font-weight: 500;
+      font-family: var(--wy-font-mono);
+    }
+
+    /* ============================================
+       MODAL · 弹窗详情
+       ============================================ */
+    .wy-modal-overlay {
+      position: fixed; inset: 0;
+      z-index: 200;
+      background: rgba(10, 37, 64, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 60px 20px;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .wy-modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .wy-modal {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      background: var(--wy-white);
+      border-radius: 12px;
+      overflow: hidden;
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 30px 80px -20px rgba(10, 37, 64, 0.4);
+    }
+    .wy-modal-overlay.is-open .wy-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .wy-modal-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      z-index: 5;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--wy-ink-50);
+      color: var(--wy-ink-400);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .wy-modal-close:hover {
+      background: var(--wy-ink-100);
+      color: var(--wy-ink);
+      transform: rotate(90deg);
+    }
+
+    /* Modal Header */
+    .wy-modal-head {
+      padding: 32px 36px 24px;
+      background: var(--wy-bg);
+      border-bottom: 1px solid var(--wy-ink-100);
+    }
+    .wy-modal-head-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 12px;
+    }
+    .wy-modal-icon {
+      width: 48px; height: 48px;
+      background: var(--wy-primary-50);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--wy-primary);
+      flex-shrink: 0;
+    }
+    .wy-modal-icon svg { width: 22px; height: 22px; }
+    .wy-modal-head-text { flex: 1; min-width: 0; }
+    .wy-modal-name {
+      font-size: 22px; font-weight: 500;
+      letter-spacing: 3px; color: var(--wy-ink);
+      margin-bottom: 4px;
+    }
+    .wy-modal-slug {
+      font-family: var(--wy-font-mono);
+      font-size: 12px; letter-spacing: 0;
+      color: var(--wy-ink-400);
+    }
+
+    .wy-modal-meta {
+      display: flex; align-items: center; gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .wy-modal-meta-tag {
+      padding: 4px 10px;
+      font-size: 11px; letter-spacing: 1.5px;
+      border-radius: 4px;
+    }
+    .wy-modal-meta-tag.is-cat {
+      background: var(--wy-primary-50);
+      color: var(--wy-primary);
+    }
+    .wy-modal-meta-tag.is-deploy {
+      background: var(--wy-white);
+      color: var(--wy-ink-400);
+      border: 1px solid var(--wy-ink-100);
+      font-family: var(--wy-font-mono);
+      font-size: 10px;
+    }
+    .wy-modal-meta-tag.is-status-ready {
+      background: var(--wy-success-50);
+      color: var(--wy-success-700);
+      font-family: var(--wy-font-en);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .wy-modal-meta-tag.is-status-beta {
+      background: var(--wy-warning-50);
+      color: var(--wy-warning-700);
+      font-family: var(--wy-font-en);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .wy-modal-meta-tag.is-status-planning {
+      background: var(--wy-ink-50);
+      color: var(--wy-ink-400);
+      font-family: var(--wy-font-en);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    }
+
+    /* Modal Body */
+    .wy-modal-body {
+      padding: 32px 36px;
+      max-height: calc(100vh - 320px);
+      overflow-y: auto;
+    }
+    .wy-modal-pitch {
+      padding: 16px 20px;
+      background: var(--wy-accent-50);
+      border-left: 3px solid var(--wy-accent);
+      border-radius: 4px;
+      font-size: 15px;
+      color: var(--wy-ink);
+      line-height: 1.7;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+
+    .wy-modal-section {
+      margin-bottom: 24px;
+    }
+    .wy-modal-section:last-child { margin-bottom: 0; }
+
+    .wy-modal-section-title {
+      font-size: 11px;
+      font-family: var(--wy-font-en);
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--wy-ink-400);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wy-modal-section-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--wy-ink-100);
+    }
+
+    .wy-modal-section-content {
+      font-size: 14px;
+      color: var(--wy-ink);
+      line-height: 1.8;
+      letter-spacing: 1px;
+    }
+    .wy-modal-section-content p {
+      margin-bottom: 8px;
+    }
+    .wy-modal-section-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .wy-modal-section-content li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+    .wy-modal-section-content li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 12px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--wy-primary);
+    }
+
+    .wy-modal-deps {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .wy-modal-dep {
+      padding: 5px 12px;
+      background: var(--wy-primary-50);
+      color: var(--wy-primary);
+      font-size: 12px;
+      letter-spacing: 1px;
+      border-radius: 12px;
+    }
+
+    .wy-modal-io {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .wy-modal-io-cell {
+      padding: 14px 16px;
+      background: var(--wy-ink-50);
+      border-radius: 6px;
+    }
+    .wy-modal-io-label {
+      font-family: var(--wy-font-en);
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--wy-ink-400);
+      margin-bottom: 6px;
+    }
+    .wy-modal-io-text {
+      font-size: 13px; color: var(--wy-ink);
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+    }
+
+    /* Modal Footer */
+    .wy-modal-foot {
+      padding: 24px 36px;
+      background: var(--wy-bg);
+      border-top: 1px solid var(--wy-ink-100);
+    }
+    .wy-modal-note {
+      font-size: 12px;
+      color: var(--wy-ink-400);
+      letter-spacing: 1px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      background: var(--wy-primary-50);
+      border-radius: 4px;
+    }
+    .wy-modal-note strong {
+      color: var(--wy-primary);
+      font-weight: 500;
+    }
+
+    .wy-modal-actions {
+      display: flex; gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .wy-modal-actions .wy-button {
+      flex: 1;
+      min-width: 120px;
+    }
+    .wy-modal-tech-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--wy-ink-400);
+      letter-spacing: 1px;
+      padding: 10px 14px;
+      transition: color 0.2s ease;
+    }
+    .wy-modal-tech-link:hover { color: var(--wy-primary); }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .wy-footer {
+      background: var(--wy-ink);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 60px 0 28px;
+    }
+    .wy-footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .wy-footer .wy-logo-text { color: var(--wy-white); }
+    .wy-footer .wy-logo-text-en { color: rgba(255, 255, 255, 0.4); }
+    .wy-footer-tagline {
+      font-size: 12px; color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 1.5px;
+    }
+    .wy-footer-bottom {
+      padding-top: 24px;
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 11px; color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 1.5px;
+      font-family: var(--wy-font-en);
+    }
+
+    /* ============================================
+       Reveal
+       ============================================ */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 1200px) {
+      .wy-skills-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .wy-skills-grid { grid-template-columns: repeat(2, 1fr); }
+      /* 5 卡片在小屏幕降级为竖向流（保留所有卡片） */
+      .wy-orch-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .wy-orch-card.is-center { grid-column: 1 / -1; padding: 14px 12px; }
+      .wy-orch-lines { display: none; }
+      .wy-orch-stage { padding: 24px 20px; }
+      .wy-orch-bg-logo { width: 200px; }
+    }
+    @media (max-width: 768px) {
+      :root { --wy-pad-x: 20px; }
+      .wy-nav-menu { display: none; }
+      .wy-nav-cta .wy-button:not(.wy-button-primary) { display: none; }
+
+      .wy-skills-hero { padding: 130px 0 60px; }
+
+      .wy-orchestration { margin-top: 32px; }
+      .wy-orchestration-label { font-size: 9px; letter-spacing: 4px; margin-bottom: 16px; }
+      .wy-orch-cards { grid-template-columns: 1fr; gap: 10px; }
+      .wy-orch-card.is-center { grid-column: 1; }
+      .wy-orch-card { padding: 12px; }
+      .wy-orch-foot { font-size: 11px; }
+
+      .wy-skills-toolbar { padding: 32px 0 16px; }
+      .wy-skills-search { margin-bottom: 20px; }
+      .wy-skills-filter { padding: 6px 12px; font-size: 11px; }
+
+      .wy-skills-grid { grid-template-columns: 1fr; }
+
+      .wy-modal-overlay { padding: 20px; }
+      .wy-modal-head, .wy-modal-body, .wy-modal-foot { padding-left: 22px; padding-right: 22px; }
+      .wy-modal-io { grid-template-columns: 1fr; }
+      .wy-modal-actions { flex-direction: column; }
+      .wy-modal-actions .wy-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="wy-nav" id="wyNav">
+    <div class="wy-topbar"><div></div><div></div></div>
+    <div class="wy-nav-inner">
+      <a href="index.html" class="wy-logo" aria-label="WenyuClaw 首页">
+        <svg viewBox="-50 -36 100 72" aria-hidden="true">
+          <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="#1E5FBF"/>
+          <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="#1E5FBF"/>
+          <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="#00C9A7"/>
+          <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="#00C9A7"/>
+        </svg>
+        <div class="wy-logo-stack">
+          <div class="wy-logo-text">文语</div>
+          <div class="wy-logo-text-en">WENYUCLAW</div>
+        </div>
+      </a>
+
+      <ul class="wy-nav-menu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="index.html#scenarios">应用场景</a></li>
+        <li><a href="index.html#advantages">核心优势</a></li>
+        <li><a href="index.html#case">客户案例</a></li>
+        <li><a href="skills.html" class="is-active">Skills 市场</a></li>
+      </ul>
+
+      <div class="wy-nav-cta">
+        <button class="wy-button wy-button-ghost">登录</button>
+        <button class="wy-button wy-button-primary">免费试用</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="wy-skills-hero">
+    <svg class="wy-skills-hero-grid" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="heroGrid" width="56" height="56" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="56" y2="0" stroke="#0A2540" stroke-width="0.5" opacity="0.04"/>
+          <line x1="0" y1="0" x2="0" y2="56" stroke="#0A2540" stroke-width="0.5" opacity="0.04"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#heroGrid)"/>
+    </svg>
+
+    <div class="wy-container">
+      <div class="wy-skills-hero-inner">
+        <div class="wy-skills-hero-eyebrow">SKILLS MARKETPLACE</div>
+        <h1 class="wy-skills-hero-title">企业级 AI <em>技能市场</em></h1>
+        <p class="wy-skills-hero-desc">
+          基于行业 know-how 沉淀的标准化 AI 技能，每一个都可按你的业务流程定制对接。<br/>
+          这不是开放下载市场，是文语为 B 端企业准备的"能力目录"。
+        </p>
+
+        <!-- 能力编排可视化 -->
+        <div class="wy-orchestration">
+          <div class="wy-orch-stage">
+            <!-- 背景文语 Logo -->
+            <svg class="wy-orch-bg-logo" viewBox="-50 -36 100 72" aria-hidden="true">
+              <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="currentColor"/>
+              <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="currentColor"/>
+              <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="currentColor"/>
+              <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="currentColor"/>
+            </svg>
+
+            <!-- 连接线 SVG -->
+            <svg class="wy-orch-lines" preserveAspectRatio="none" aria-hidden="true">
+              <!-- 4 段连线，每段中间一个青绿圆点 -->
+              <line x1="14%" y1="50%" x2="32%" y2="50%" stroke="var(--wy-primary-100)" stroke-width="1.5"/>
+              <line x1="36%" y1="50%" x2="46%" y2="50%" stroke="var(--wy-primary-100)" stroke-width="1.5"/>
+              <line x1="54%" y1="50%" x2="64%" y2="50%" stroke="var(--wy-primary-100)" stroke-width="1.5"/>
+              <line x1="68%" y1="50%" x2="86%" y2="50%" stroke="var(--wy-primary-100)" stroke-width="1.5"/>
+
+              <!-- 流动小圆点 · 错峰启动 -->
+              <circle r="3" fill="var(--wy-accent)">
+                <animate attributeName="cx" values="14%;32%" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="50%;50%" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle r="3" fill="var(--wy-accent)">
+                <animate attributeName="cx" values="36%;46%" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="50%;50%" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle r="3" fill="var(--wy-accent)">
+                <animate attributeName="cx" values="54%;64%" dur="2.5s" begin="1.0s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="50%;50%" dur="2.5s" begin="1.0s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" begin="1.0s" repeatCount="indefinite"/>
+              </circle>
+              <circle r="3" fill="var(--wy-accent)">
+                <animate attributeName="cx" values="68%;86%" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="50%;50%" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+
+            <!-- 5 个核心能力卡片 -->
+            <div class="wy-orch-cards">
+              <div class="wy-orch-card">
+                <div class="wy-orch-card-icon">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M7 5a3 3 0 014.24 0l1.42 1.42a3 3 0 010 4.24L11.24 12.1"/>
+                    <path d="M11 13a3 3 0 01-4.24 0L5.34 11.58a3 3 0 010-4.24L6.76 5.92"/>
+                  </svg>
+                </div>
+                <div class="wy-orch-card-cn">API 连接</div>
+                <div class="wy-orch-card-en">API</div>
+                <div class="wy-orch-card-desc">对接企业现有系统</div>
+              </div>
+
+              <div class="wy-orch-card">
+                <div class="wy-orch-card-icon">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <ellipse cx="9" cy="4" rx="6" ry="2"/>
+                    <path d="M3 4v5c0 1.1 2.7 2 6 2s6-0.9 6-2V4"/>
+                    <path d="M3 9v5c0 1.1 2.7 2 6 2s6-0.9 6-2V9"/>
+                  </svg>
+                </div>
+                <div class="wy-orch-card-cn">数据处理</div>
+                <div class="wy-orch-card-en">DATA</div>
+                <div class="wy-orch-card-desc">清洗 · 转换 · 分析</div>
+              </div>
+
+              <!-- 中心位 · 流程编排（中枢） -->
+              <div class="wy-orch-card is-center">
+                <div class="wy-orch-card-icon">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 9h3l2-5 4 10 2-5h3"/>
+                  </svg>
+                </div>
+                <div class="wy-orch-card-cn">流程编排</div>
+                <div class="wy-orch-card-en">WORKFLOW</div>
+                <div class="wy-orch-card-desc">智能调度核心能力</div>
+              </div>
+
+              <div class="wy-orch-card">
+                <div class="wy-orch-card-icon">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <circle cx="8" cy="8" r="5"/>
+                    <path d="M12 12l3 3"/>
+                  </svg>
+                </div>
+                <div class="wy-orch-card-cn">知识查询</div>
+                <div class="wy-orch-card-en">KNOWLEDGE</div>
+                <div class="wy-orch-card-desc">企业知识快速检索</div>
+              </div>
+
+              <div class="wy-orch-card">
+                <div class="wy-orch-card-icon">
+                  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <path d="M9 2l1.8 4.5L15 7l-3.4 3 1 4.5L9 12l-3.6 2.5 1-4.5L3 7l4.2-0.5L9 2z"/>
+                  </svg>
+                </div>
+                <div class="wy-orch-card-cn">决策支持</div>
+                <div class="wy-orch-card-en">DECISION</div>
+                <div class="wy-orch-card-desc">数据驱动精准建议</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wy-orch-foot">
+            <span class="wy-orch-foot-hex">⬡</span>
+            <span>向下浏览已沉淀的 Skill</span>
+            <svg class="wy-orch-foot-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TOOLBAR ========== -->
+  <div class="wy-skills-toolbar" id="wySkillsToolbar">
+    <div class="wy-container">
+      <!-- 搜索 -->
+      <div class="wy-skills-search">
+        <span class="wy-skills-search-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <input type="text" class="wy-skills-search-input" id="wySkillSearch" placeholder="搜索技能名称、场景或行业..." autocomplete="off" />
+        <button class="wy-skills-search-clear" id="wySkillSearchClear" aria-label="清除">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 分类筛选 -->
+      <div class="wy-skills-filters" id="wySkillFilters">
+        <!-- 由 JS 动态生成 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SKILLS GRID ========== -->
+  <main class="wy-skills-main">
+    <div class="wy-container">
+      <div class="wy-skills-grid" id="wySkillsGrid">
+        <!-- 由 JS 动态生成 -->
+      </div>
+
+      <div class="wy-skills-count" id="wySkillsCount">
+        <!-- 由 JS 动态生成 -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== MODAL ========== -->
+  <div class="wy-modal-overlay" id="wyModalOverlay">
+    <div class="wy-modal" id="wyModal" role="dialog" aria-modal="true">
+      <button class="wy-modal-close" id="wyModalClose" aria-label="关闭">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="wy-modal-head">
+        <div class="wy-modal-head-row">
+          <div class="wy-modal-icon" id="wyModalIcon"></div>
+          <div class="wy-modal-head-text">
+            <h2 class="wy-modal-name" id="wyModalName"></h2>
+            <div class="wy-modal-slug" id="wyModalSlug"></div>
+          </div>
+        </div>
+        <div class="wy-modal-meta" id="wyModalMeta"></div>
+      </div>
+
+      <div class="wy-modal-body" id="wyModalBody">
+        <!-- 由 JS 动态填充 -->
+      </div>
+
+      <div class="wy-modal-foot">
+        <div class="wy-modal-note">
+          <strong>按需定制</strong> · 此 Skill 已具备技术能力，可根据您的具体业务流程定制对接，部署周期通常 <span id="wyModalDeploy">1-3</span> 周。
+        </div>
+        <div class="wy-modal-actions">
+          <button class="wy-button wy-button-primary">
+            联系销售
+            <svg class="wy-button-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="wy-button wy-button-secondary">预约演示</button>
+          <a href="#" class="wy-modal-tech-link" id="wyModalTechLink">
+            查看技术细节
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+              <path d="M3 8l5-5M3 3h5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="wy-footer">
+    <div class="wy-container">
+      <div class="wy-footer-inner">
+        <a href="index.html" class="wy-logo">
+          <svg viewBox="-50 -36 100 72" width="32" aria-hidden="true">
+            <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="#1E5FBF"/>
+            <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="#1E5FBF"/>
+            <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="#00C9A7"/>
+            <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="#00C9A7"/>
+          </svg>
+          <div class="wy-logo-stack">
+            <div class="wy-logo-text">文语</div>
+            <div class="wy-logo-text-en">WENYUCLAW</div>
+          </div>
+        </a>
+        <p class="wy-footer-tagline">让对话成为生产力 · Conversation as Productivity</p>
+      </div>
+      <div class="wy-footer-bottom">
+        <div>© 2026 WenyuClaw · wenyu.ai · All rights reserved.</div>
+        <div>地址：杭州市余杭区五常街道天空之城月之庭</div>
+        <div>电话：18158108600</div>
+        <div>contact：xizetan@gmail.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================
+    // 数据 · 16 个 Skill 的业务介绍
+    // 后续接入真实 BUSINESS.md 时，由后端解析填充此数组
+    // ============================================
+    const SKILLS_DATA = [
+      {
+        slug: 'attendance-leave',
+        name: '考勤请假',
+        category: '行政流程',
+        icon: 'clipboard-list',
+        status: 'ready',
+        deploy_weeks: '1-3',
+        pitch: '让 HR 告别 Excel 月底统计，让员工告别纸质请假单。',
+        scenario: '一家 500 人规模的制造业企业，HR 每月需要花 2-3 天手动汇总考勤数据，对照打卡机记录、请假单、出差表。员工请假需要走纸质流程，部门主管经常错过审批，月末才发现请假未销假，影响工资核算。',
+        solves: [
+          'HR 只需校对系统标记的异常考勤项，不再手工汇总全员',
+          '员工通过 IM 直接说「明天请假半天」，AI 自动路由到主管审批',
+          '月度 / 年度考勤报表自动生成，按部门维度导出 Excel',
+          '异常打卡（迟到、早退、漏打卡）系统自动提醒员工补卡'
+        ],
+        target: '已部署 OA / HR 系统，员工数 100-2000 人，有规范的请假审批流程',
+        input: '自然语言（"查询李四本月考勤"、"我明天请假"）',
+        output: '考勤记录 / 请假单 / 月度报表（Excel）',
+        deps: ['API 连接', '流程自动化', '数据处理']
+      },
+      {
+        slug: 'auto-email-reply',
+        name: '邮件自动回复',
+        category: '沟通自动化',
+        icon: 'mail',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '让客户邮件不再积压，常见问题分钟级响应。',
+        scenario: '一家 SaaS 公司每天收到 200+ 客户邮件，70% 是常见问题（密码重置、发票申请、价格咨询）。客服团队 3 个人忙不过来，平均响应时长超过 4 小时，客户满意度持续下滑。',
+        solves: [
+          'AI 识别邮件意图，常见问题自动起草回复，客服一键发送或修改后发送',
+          '模板邮件（密码重置、发票申请等）按规则自动回复，无需人工介入',
+          '复杂问题智能分流到对应客服或部门',
+          '自动跟踪未回复邮件，超时升级提醒'
+        ],
+        target: '邮件咨询量较大（每日 50+），已部署企业邮箱，客户咨询有较多重复性问题',
+        input: '客户邮件内容',
+        output: '自动回复 / 起草回复（待审核）/ 分流到对应人',
+        deps: ['API 连接', '知识查询', '决策支持']
+      },
+      {
+        slug: 'business-consult-reply',
+        name: '业务咨询应答',
+        category: '沟通自动化',
+        icon: 'message-circle',
+        status: 'ready',
+        deploy_weeks: '2-3',
+        pitch: '让 7×24 小时客服成为可能，让一线员工不再重复回答相同问题。',
+        scenario: '一家工业品分销企业，每天有大量代理商和终端客户在飞书群、官网在线咨询、微信咨询产品规格、价格、库存、交期。销售助理重复回答相同问题，下班后无人响应，订单流失严重。',
+        solves: [
+          '接入官网客服气泡、飞书机器人、钉钉机器人等多端，统一应答',
+          '基于产品手册、价格表、库存系统实时回答业务咨询',
+          '支持「转人工」一键升级到销售',
+          '客户咨询历史自动沉淀，便于跟单'
+        ],
+        target: '有标准化产品 / 服务目录，多端客户咨询，已部署 ERP / 库存系统',
+        input: '客户咨询（自然语言）',
+        output: '回答 + 资料链接 / 转人工分流 / 跟单记录',
+        deps: ['知识查询', 'API 连接', '流程自动化']
+      },
+      {
+        slug: 'auto-report-generator',
+        name: '报表自动生成',
+        category: '信息汇总',
+        icon: 'bar-chart-3',
+        status: 'ready',
+        deploy_weeks: '2-4',
+        pitch: '让数据从孤岛中走出来，自动生成可视化报表。',
+        scenario: '一家中型零售企业，运营总监每周需要看销售报表、库存报表、门店对比，数据分布在 ERP、POS、电商后台。数据分析师每周花 2 天做报表，老板看到的数据永远滞后一周。',
+        solves: [
+          '一句话生成报表："给我看本月华东区销售 Top 10 SKU"',
+          '多源数据自动整合（ERP + POS + 电商）',
+          '报表自动生成可视化图表（柱状、折线、对比、地图）',
+          '定时报表自动推送到指定人（微信 / 邮箱 / IM）'
+        ],
+        target: '数据分散在多个系统，管理层有定期查看数据需求',
+        input: '自然语言（"对比 Q3 各部门人效"）',
+        output: '可视化报表（PDF / Excel / 在线 Dashboard）',
+        deps: ['数据处理', 'API 连接', '决策支持']
+      },
+      {
+        slug: 'invoice-reimbursement',
+        name: '发票报销',
+        category: '行政流程',
+        icon: 'receipt',
+        status: 'ready',
+        deploy_weeks: '2-3',
+        pitch: '让员工拍张发票就能完成报销，让财务告别人工核验。',
+        scenario: '一家咨询公司，员工每月报销差旅、餐饮、交通费用，需要手动填表、上传发票、走审批。财务每月花一周时间核对发票真伪、查重、对账，员工经常因为发票问题被打回返工。',
+        solves: [
+          '员工拍照上传发票，AI 自动识别金额、税号、开票方等关键字段',
+          '自动校验发票真伪（对接税局接口）+ 查重',
+          '自动填充报销单，路由到对应审批人',
+          '月底自动汇总分类，导出会计科目对应表'
+        ],
+        target: '员工差旅 / 招待费用频繁，已有报销审批流程',
+        input: '发票图片 / PDF',
+        output: '识别后的报销单 + 审批流转 + 月度汇总',
+        deps: ['数据处理', 'API 连接', '流程自动化']
+      },
+      {
+        slug: 'pdf-to-excel',
+        name: 'PDF 转 Excel',
+        category: '文档处理',
+        icon: 'file-spreadsheet',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '告别 PDF 表格手抄到 Excel 的反人类操作。',
+        scenario: '一家会计师事务所，每月处理大量客户提供的 PDF 财务报表、银行对账单、税务单据。审计人员需要把表格逐行手抄到 Excel 做分析，500 行表格要花半天时间，且经常抄错。',
+        solves: [
+          '上传 PDF 自动识别表格结构（含合并单元格、跨页表格）',
+          '提取的数据完整保留行列结构，可直接在 Excel 中分析',
+          '支持批量处理（一次上传几十个 PDF）',
+          '处理后自动校验数值合计，标记可疑项'
+        ],
+        target: '大量处理外部 PDF 文档，数据需要二次分析或入库',
+        input: 'PDF 文件（单个或批量）',
+        output: '结构化 Excel（保留原表格结构）',
+        deps: ['数据处理', '决策支持']
+      },
+      {
+        slug: 'pdf-to-text',
+        name: 'PDF 转文字',
+        category: '文档处理',
+        icon: 'file-text',
+        status: 'ready',
+        deploy_weeks: '1',
+        pitch: '让 PDF 里的内容能被搜索、引用、二次加工。',
+        scenario: '一家律师事务所，案件资料、合同、判决书绝大多数以 PDF 形式存档。律师需要在某个具体合同条款中查找历史先例时，只能逐个 PDF 打开人工查看，效率极低。',
+        solves: [
+          'PDF 一键转可编辑文本（支持扫描件 OCR）',
+          '保留原始格式（标题、段落、列表、注脚）',
+          '支持批量转换 + 全文索引',
+          '可与企业知识库联动，转换后自动入库可检索'
+        ],
+        target: '历史档案大量为 PDF，需要从 PDF 中检索 / 引用具体内容',
+        input: 'PDF 文件（含扫描件）',
+        output: '纯文本 / Word / Markdown，保留排版结构',
+        deps: ['数据处理', '知识查询']
+      },
+      {
+        slug: 'doc-translator',
+        name: '文档翻译',
+        category: '文档处理',
+        icon: 'languages',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '让外语文档的处理速度赶上业务节奏。',
+        scenario: '一家外贸公司，每周收到大量英文、日文的产品规格书、合同、客户邮件、行业报告。商务团队不是每个人都精通多语言，依赖第三方翻译公司周期长（3-5 天）、成本高，紧急合同等不及。',
+        solves: [
+          '上传文档（Word / PDF / Excel）保留排版直接翻译',
+          '行业术语支持自定义词库',
+          '批量翻译（一次几十份文档）',
+          '翻译后保留原文对照，便于核对'
+        ],
+        target: '涉外业务，多语言文档处理需求，对翻译时效性要求高',
+        input: '原文档（Word / PDF / Excel / 网页）',
+        output: '翻译后文档（保留排版）+ 双语对照版',
+        deps: ['数据处理', '知识查询']
+      },
+      {
+        slug: 'meeting-recording-summary',
+        name: '会议录音纪要',
+        category: '信息汇总',
+        icon: 'mic',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '开完会就能看到纪要，告别会后扒录音整理。',
+        scenario: '一家中型咨询公司，项目组每周开 5+ 内部 / 客户会议。会议纪要由助理整理，平均每次会议要花 1-2 小时听录音、写纪要，且常常漏掉关键决策。客户总是抱怨会后跟进慢。',
+        solves: [
+          '上传会议录音 / 视频，自动生成会议纪要',
+          '关键决策、待办事项、截止时间自动提取',
+          '自动识别发言人，标注「谁说了什么」',
+          '可一键发送纪要到飞书 / 钉钉 / 邮箱给参会人'
+        ],
+        target: '会议密集的团队，重视决策落地与跟进',
+        input: '会议录音 / 视频 / 文字转录',
+        output: '结构化纪要（参会人 / 议题 / 决策 / 待办）',
+        deps: ['数据处理', '决策支持', '流程自动化']
+      },
+      {
+        slug: 'image-to-text',
+        name: '图片转文字',
+        category: '文档处理',
+        icon: 'image',
+        status: 'ready',
+        deploy_weeks: '1',
+        pitch: '让图片里的信息变成可检索、可引用的数据。',
+        scenario: '一家保险公司，理赔人员每天收到大量客户拍照上传的票据、医疗发票、事故现场照片、行驶证截图。理赔员需要手抄关键信息（金额、日期、单号）到系统，每张票据 2-3 分钟，每天上百张，是巨大的人力消耗。',
+        solves: [
+          '上传图片自动识别文字（含手写字、印刷体、票据、屏幕截图）',
+          '关键字段结构化提取（如发票的金额、日期、税号）',
+          '支持批量上传',
+          '识别后自动填充到对应业务系统'
+        ],
+        target: '大量处理票据 / 单据 / 现场照片，数据需要录入业务系统',
+        input: '图片（手机拍照、扫描件、屏幕截图）',
+        output: '纯文本 / 结构化字段（JSON）',
+        deps: ['数据处理', 'API 连接']
+      },
+      {
+        slug: 'news-aggregator',
+        name: '新闻聚合',
+        category: '信息汇总',
+        icon: 'newspaper',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '让你的早报每天 7 点准时到，只看你关心的内容。',
+        scenario: '一家投资机构，分析师每天需要从多个财经媒体、行业网站、政策门户阅读新闻，掌握所投行业动态。早会前每人花 1-2 小时筛信息，遇到关键政策变动经常滞后获知。',
+        solves: [
+          '配置关注领域 / 关键词 / 信息源',
+          '系统每日定时抓取，自动去重、过滤、分类',
+          'AI 生成摘要，长篇新闻只读 100 字概括',
+          '可推送到 IM / 邮箱 / 内部知识库'
+        ],
+        target: '行业动态敏感，团队需要每日信息同步',
+        input: '信息源列表 + 关注关键词',
+        output: '每日摘要邮件 / 简报',
+        deps: ['数据处理', '知识查询', '流程自动化']
+      },
+      {
+        slug: 'employee-onboarding',
+        name: '员工入职自动化',
+        category: '行政流程',
+        icon: 'user-plus',
+        status: 'ready',
+        deploy_weeks: '2-3',
+        pitch: '新员工 Day 1 就能上手工作，HR 不用为 N 个系统开账号忙到下班。',
+        scenario: '一家 800 人规模的互联网公司，每月新入职 10-30 人。HR 需要为每位新员工开通：邮箱、企业 IM、OA、ERP、Git、各类业务系统的账号；分配工位、电脑、门禁卡。每个人开通要走 8-12 个流程，耗时 2-3 小时。',
+        solves: [
+          '一次填写新员工信息，AI 自动调用各系统 API 开通账号 / 配置权限',
+          '自动按岗位生成入职 checklist',
+          '自动安排导师 / 工位 / 培训日程',
+          '试用期评估自动提醒'
+        ],
+        target: '新员工入职频繁（月度 5+），涉及多个 IT 系统账号',
+        input: '新员工基本信息 + 岗位',
+        output: '账号开通报告 + 入职 checklist + 培训日程',
+        deps: ['API 连接', '流程自动化', '知识查询']
+      },
+      {
+        slug: 'file-search-archive',
+        name: '文件搜索与归档',
+        category: '知识查询',
+        icon: 'folder-search',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '公司知识库不再是"大家都知道但找不到"的黑洞。',
+        scenario: '一家 300 人的工程设计公司，过去 10 年的设计图纸、合同、项目报告分散在文件服务器、网盘、个人电脑里。员工查历史项目要问遍全公司，老员工离职后很多文件再也找不到。',
+        solves: [
+          '自然语言搜索（"2023 年华东区 EPC 项目的合同"）',
+          '跨多个存储位置（NAS / 网盘 / 邮件附件）联合检索',
+          '自动按规则归档新文件',
+          '文档版本管理与变更追踪'
+        ],
+        target: '历史文件量大，文件分散在多个存储位置',
+        input: '自然语言查询（"找一份关于 X 的合同"）',
+        output: '匹配文件列表 + 摘要 + 归档建议',
+        deps: ['知识查询', '数据处理', '流程自动化']
+      },
+      {
+        slug: 'guide-query',
+        name: '办事指南查询',
+        category: '知识查询',
+        icon: 'book-open',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '让员工不再问"这事儿怎么办"，让政策和流程触手可及。',
+        scenario: '一家政务服务公司，业务覆盖 20+ 城市，每个城市的工商注册、税务申报、社保办理流程都不一样。新员工上岗要背一本「办事手册」，老员工偶尔也搞错最新政策，客户投诉频发。',
+        solves: [
+          '员工 IM 一句话查询："南京个体户注册要什么材料"',
+          '内置政策知识库，按城市 / 业务类型分类',
+          '政策更新自动通知相关业务线',
+          '支持上传客户具体情况，AI 给出适配的办理建议'
+        ],
+        target: '业务跨地区 / 多政策版本，知识更新频繁',
+        input: '自然语言（"上海公司变更地址流程"）',
+        output: '办理流程 / 所需材料 / 注意事项 + 政策原文链接',
+        deps: ['知识查询', '决策支持']
+      },
+      {
+        slug: 'meeting-room-booking',
+        name: '会议室预订',
+        category: '行政流程',
+        icon: 'door-open',
+        status: 'ready',
+        deploy_weeks: '1-2',
+        pitch: '一句话约会议室，告别群里互相抢、撞车再让位。',
+        scenario: '一家 200 人规模的咨询公司，每天有 30+ 内部会议。HR 用一个共享 Excel 维护会议室状态，员工预订要来回沟通，撞车率高达 20%。临时会议常常找不到合适的房间。',
+        solves: [
+          '在 IM 里直接说"明天下午 2 点订个 A301"，AI 完成预订',
+          '预订前自动检测冲突，不会撞车',
+          '会议开始前自动提醒参会人',
+          '支持重复预订和会议室容量 / 设备的智能推荐'
+        ],
+        target: '已部署 IM 和 OA 系统，员工 100-1000 人，拥有 5 个以上独立会议室',
+        input: '自然语言（"明天下午 2 点订个能容纳 8 人的会议室"）',
+        output: '预订确认 + 日历邀请 + 提前提醒',
+        deps: ['API 连接', '流程自动化', '决策支持']
+      },
+      {
+        slug: 'weather-alert',
+        name: '天气预报与提醒',
+        category: '知识查询',
+        icon: 'cloud-sun',
+        status: 'ready',
+        deploy_weeks: '1',
+        pitch: '极端天气提前预警，让户外作业不再被天气打个措手不及。',
+        scenario: '一家工程施工企业，户外项目分布在全国 20+ 城市。极端天气（暴雨、台风、高温、冰冻）会影响施工安全和进度。项目经理每天靠手机刷天气 App 来判断，遇到突发天气时常常组织撤离不及时，造成损失。',
+        solves: [
+          '按项目地点配置自动天气监控',
+          '极端天气提前 24-72 小时预警，推送到项目经理 IM',
+          '自动触发应急预案',
+          '历史天气数据查询，便于工期复盘'
+        ],
+        target: '户外作业频繁，项目分布多地，有应急响应流程',
+        input: '项目 / 区域配置 + 关注天气类型',
+        output: '天气预报 + 极端天气预警 + 应急建议',
+        deps: ['API 连接', '知识查询', '流程自动化']
+      }
+    ];
+
+    // ============================================
+    // 图标库 · Lucide 风格
+    // ============================================
+    const ICONS = {
+      'clipboard-list': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><path d="M9 12h6M9 16h6M9 8h.01"/></svg>',
+      'mail': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>',
+      'message-circle': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-9 8.5 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.2A8.38 8.38 0 014 11.5a8.5 8.5 0 019-8.5 8.38 8.38 0 018 8.5z"/></svg>',
+      'bar-chart-3': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16V11M12 16V8M17 16V13"/></svg>',
+      'receipt': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h6"/></svg>',
+      'file-spreadsheet': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/></svg>',
+      'file-text': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>',
+      'languages': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>',
+      'mic': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v3"/></svg>',
+      'image': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>',
+      'newspaper': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>',
+      'user-plus': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>',
+      'folder-search': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20H4a2 2 0 01-2-2V5a2 2 0 012-2h3.93a2 2 0 011.66.9l.82 1.2a2 2 0 001.66.9H20a2 2 0 012 2v3"/><circle cx="17" cy="17" r="3"/><path d="M21 21l-1.5-1.5"/></svg>',
+      'book-open': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>',
+      'door-open': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 012 2v14M2 20h20M14 12v.01M13 4l-7 2v14h7"/></svg>',
+      'cloud-sun': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M5.6 5.6l1.4 1.4M2 12h2M20 12h2M17 7l1.4-1.4"/><path d="M16 8a5 5 0 00-9-2 4.5 4.5 0 00-2.5 8.4"/><path d="M19.78 17.12a3 3 0 00-1.78-5.5 5 5 0 00-9.66 1.36A4 4 0 008 21h11a3 3 0 00.78-3.88z"/></svg>',
+      // 默认 fallback
+      'default': '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>'
+    };
+
+    function getIcon(name) {
+      return ICONS[name] || ICONS['default'];
+    }
+
+    // ============================================
+    // 状态管理
+    // ============================================
+    const state = {
+      query: '',
+      category: 'all'
+    };
+
+    // ============================================
+    // 渲染分类筛选
+    // ============================================
+    function renderFilters() {
+      const filters = document.getElementById('wySkillFilters');
+      // 统计每个分类的数量
+      const counts = { all: SKILLS_DATA.length };
+      SKILLS_DATA.forEach(s => {
+        counts[s.category] = (counts[s.category] || 0) + 1;
+      });
+
+      // 分类顺序
+      const cats = ['all', '文档处理', '行政流程', '信息汇总', '知识查询', '沟通自动化'];
+
+      filters.innerHTML = cats.map(cat => {
+        const label = cat === 'all' ? '全部' : cat;
+        const isActive = state.category === cat ? 'is-active' : '';
+        return `
+          <button class="wy-skills-filter ${isActive}" data-cat="${cat}">
+            ${label}<span class="wy-skills-filter-count">${counts[cat] || 0}</span>
+          </button>
+        `;
+      }).join('');
+
+      filters.querySelectorAll('.wy-skills-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.category = btn.dataset.cat;
+          renderFilters();
+          renderGrid();
+        });
+      });
+    }
+
+    // ============================================
+    // 渲染卡片网格
+    // ============================================
+    function renderGrid() {
+      const grid = document.getElementById('wySkillsGrid');
+      const count = document.getElementById('wySkillsCount');
+
+      const filtered = SKILLS_DATA.filter(s => {
+        // 分类
+        if (state.category !== 'all' && s.category !== state.category) return false;
+        // 搜索
+        if (state.query) {
+          const q = state.query.toLowerCase();
+          const haystack = [s.name, s.slug, s.category, s.pitch, s.scenario].join(' ').toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="wy-skills-empty">
+            <div class="wy-skills-empty-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="M21 21l-4.35-4.35"/>
+              </svg>
+            </div>
+            <div class="wy-skills-empty-text">没有匹配的技能</div>
+            <div class="wy-skills-empty-hint">尝试切换其他分类或调整搜索关键词</div>
+          </div>
+        `;
+        count.innerHTML = '';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(s => `
+        <button class="wy-skill-card" data-slug="${s.slug}">
+          <div class="wy-skill-card-head">
+            <div class="wy-skill-card-icon">${getIcon(s.icon)}</div>
+            <span class="wy-skill-card-status is-${s.status}">${
+              s.status === 'ready' ? 'Ready' : s.status === 'beta' ? 'Beta' : 'Planning'
+            }</span>
+          </div>
+          <h3 class="wy-skill-card-name">${s.name}</h3>
+          <div class="wy-skill-card-slug">${s.slug}</div>
+          <p class="wy-skill-card-pitch">${s.pitch}</p>
+          <div class="wy-skill-card-foot">
+            <span class="wy-skill-card-cat">${s.category}</span>
+            <span class="wy-skill-card-action">
+              查看详情
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                <path d="M3 5.5h5M6 3l2.5 2.5L6 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </button>
+      `).join('');
+
+      count.innerHTML = `已显示 <strong>${filtered.length}</strong> / ${SKILLS_DATA.length} 个技能`;
+
+      // 绑定卡片点击
+      grid.querySelectorAll('.wy-skill-card').forEach(card => {
+        card.addEventListener('click', () => {
+          openModal(card.dataset.slug);
+        });
+      });
+
+      // 渐入
+      requestAnimationFrame(() => {
+        grid.querySelectorAll('.wy-skill-card').forEach((card, i) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 30);
+        });
+      });
+    }
+
+    // ============================================
+    // 弹窗
+    // ============================================
+    const modalOverlay = document.getElementById('wyModalOverlay');
+    const modal = document.getElementById('wyModal');
+    const modalClose = document.getElementById('wyModalClose');
+
+    function openModal(slug) {
+      const skill = SKILLS_DATA.find(s => s.slug === slug);
+      if (!skill) return;
+
+      // 填充
+      document.getElementById('wyModalIcon').innerHTML = getIcon(skill.icon);
+      document.getElementById('wyModalName').textContent = skill.name;
+      document.getElementById('wyModalSlug').textContent = skill.slug;
+      document.getElementById('wyModalDeploy').textContent = skill.deploy_weeks;
+      document.getElementById('wyModalTechLink').href = `skill-doc.html?skill=${skill.slug}`;
+
+      // Meta tags
+      const statusLabel = skill.status === 'ready' ? 'Ready' : skill.status === 'beta' ? 'Beta' : 'Planning';
+      document.getElementById('wyModalMeta').innerHTML = `
+        <span class="wy-modal-meta-tag is-cat">${skill.category}</span>
+        <span class="wy-modal-meta-tag is-status-${skill.status}">${statusLabel}</span>
+        <span class="wy-modal-meta-tag is-deploy">${skill.deploy_weeks} 周部署</span>
+      `;
+
+      // Body
+      document.getElementById('wyModalBody').innerHTML = `
+        <div class="wy-modal-pitch">${skill.pitch}</div>
+
+        <div class="wy-modal-section">
+          <div class="wy-modal-section-title">业务场景</div>
+          <div class="wy-modal-section-content">
+            <p>${skill.scenario}</p>
+          </div>
+        </div>
+
+        <div class="wy-modal-section">
+          <div class="wy-modal-section-title">解决什么</div>
+          <div class="wy-modal-section-content">
+            <ul>
+              ${skill.solves.map(s => `<li>${s}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <div class="wy-modal-section">
+          <div class="wy-modal-section-title">输入 / 输出</div>
+          <div class="wy-modal-io">
+            <div class="wy-modal-io-cell">
+              <div class="wy-modal-io-label">Input</div>
+              <div class="wy-modal-io-text">${skill.input}</div>
+            </div>
+            <div class="wy-modal-io-cell">
+              <div class="wy-modal-io-label">Output</div>
+              <div class="wy-modal-io-text">${skill.output}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wy-modal-section">
+          <div class="wy-modal-section-title">适合企业</div>
+          <div class="wy-modal-section-content">
+            <p>${skill.target}</p>
+          </div>
+        </div>
+
+        <div class="wy-modal-section">
+          <div class="wy-modal-section-title">依赖核心技能</div>
+          <div class="wy-modal-deps">
+            ${skill.deps.map(d => `<span class="wy-modal-dep">${d}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      modalOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) closeModal();
+    });
+
+    // ============================================
+    // 搜索
+    // ============================================
+    const searchInput = document.getElementById('wySkillSearch');
+    const searchClear = document.getElementById('wySkillSearchClear');
+    let searchDebounce;
+    searchInput.addEventListener('input', () => {
+      const v = searchInput.value.trim();
+      searchClear.classList.toggle('is-visible', v.length > 0);
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        state.query = v;
+        renderGrid();
+      }, 150);
+    });
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchClear.classList.remove('is-visible');
+      state.query = '';
+      renderGrid();
+      searchInput.focus();
+    });
+
+    // ============================================
+    // NAV scroll
+    // ============================================
+    const nav = document.getElementById('wyNav');
+    const toolbar = document.getElementById('wySkillsToolbar');
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      nav.classList.toggle('is-scrolled', sy > 24);
+      // toolbar 吸顶后加阴影
+      const toolbarTop = toolbar.getBoundingClientRect().top;
+      toolbar.classList.toggle('is-stuck', toolbarTop <= 72);
+    }, { passive: true });
+
+    // ============================================
+    // 数字 Count up · (函数保留以备复用，当前 Hero 已无数字)
+    // ============================================
+    const countUp = (el, target, duration = 1400) => {
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    // document.querySelectorAll('[data-count]').forEach(el => {
+    //   const target = parseInt(el.dataset.count, 10);
+    //   countUp(el, target);
+    // });
+
+    // ============================================
+    // 启动
+    // ============================================
+    renderFilters();
+    renderGrid();
+
+    // 检查 URL 参数 · ?open=xxx 自动打开弹窗
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const openSlug = params.get('open');
+      if (openSlug) {
+        const target = SKILLS_DATA.find(s => s.slug === openSlug);
+        if (target) {
+          // 延迟一下让首屏先渲染完
+          setTimeout(() => openModal(openSlug), 300);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

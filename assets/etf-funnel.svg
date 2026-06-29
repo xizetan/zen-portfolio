@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">ETF 新手转化漏斗脱敏示意图</title>
+  <desc id="desc">展示 ETF 新手从入口曝光、详情浏览、风险认知到下单转化的四层漏斗，并标出风险认知为主要流失点。</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfaf6"/>
+      <stop offset="1" stop-color="#eee9df"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#d6b15d"/>
+      <stop offset="1" stop-color="#9b701c"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#111111" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#paper)"/>
+  <path d="M-80 860 C260 720 500 900 810 750 C1080 618 1270 690 1680 520" fill="none" stroke="#d7c8a7" stroke-width="2" opacity="0.42"/>
+  <path d="M-60 210 C280 90 520 260 790 170 C1030 90 1260 126 1660 54" fill="none" stroke="#111111" stroke-width="1.2" opacity="0.08"/>
+
+  <g transform="translate(100 92)">
+    <text x="0" y="0" fill="#111111" font-family="Inter, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="800" letter-spacing="2">ANONYMIZED FUNNEL MAP</text>
+    <text x="0" y="78" fill="#111111" font-family="Inter, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="72" font-weight="850">ETF 新手转化漏斗</text>
+    <text x="0" y="130" fill="#6d675d" font-family="Inter, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="500">主要流失点不是入口不足，而是复杂信息没有在关键时刻被翻译给新手。</text>
+  </g>
+
+  <g transform="translate(110 292)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="1440" height="540" rx="18" fill="#fbfaf6" stroke="#d1c8b7"/>
+    <line x1="344" y1="74" x2="344" y2="468" stroke="#d1c8b7"/>
+
+    <g font-family="Inter, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+      <text x="52" y="74" fill="#877747" font-size="16" font-weight="850" letter-spacing="1.8">FOUR-LAYER FUNNEL</text>
+      <text x="52" y="118" fill="#111111" font-size="36" font-weight="820">四层新手旅程</text>
+      <text x="52" y="164" fill="#6d675d" font-size="19">用示意图代替原 App 截图</text>
+      <text x="52" y="192" fill="#6d675d" font-size="19">保留漏斗形状与流失位置</text>
+
+      <g transform="translate(52 258)" fill="#111111" font-size="24" font-weight="760">
+        <text x="0" y="0">入口曝光</text>
+        <text x="0" y="76">详情浏览</text>
+        <text x="0" y="152" fill="#9b701c">风险认知</text>
+        <text x="0" y="228">下单转化</text>
+      </g>
+
+      <g transform="translate(202 244)" fill="none" stroke="#111111" stroke-width="2.4" opacity="0.48">
+        <path d="M0 14 L0 42"/>
+        <path d="M-10 32 L0 42 L10 32"/>
+        <path d="M0 90 L0 118"/>
+        <path d="M-10 108 L0 118 L10 108"/>
+        <path d="M0 166 L0 194"/>
+        <path d="M-10 184 L0 194 L10 184"/>
+      </g>
+
+      <g transform="translate(425 80)">
+        <text x="0" y="0" fill="#877747" font-size="16" font-weight="850" letter-spacing="1.8">RELATIVE CONVERSION WIDTH</text>
+
+        <g transform="translate(0 44)">
+          <rect x="0" y="0" width="780" height="58" rx="8" fill="#151515"/>
+          <text x="812" y="38" fill="#6d675d" font-size="22" font-weight="650">最宽：入口能看到</text>
+        </g>
+
+        <g transform="translate(0 144)">
+          <rect x="0" y="0" width="588" height="58" rx="8" fill="#2f2f2f"/>
+          <text x="620" y="38" fill="#6d675d" font-size="22" font-weight="650">继续浏览详情</text>
+        </g>
+
+        <g transform="translate(0 244)">
+          <rect x="0" y="-7" width="392" height="72" rx="10" fill="url(#gold)"/>
+          <rect x="-14" y="-21" width="420" height="100" rx="16" fill="none" stroke="#9b701c" stroke-width="2"/>
+          <text x="440" y="30" fill="#111111" font-size="25" font-weight="820">主要流失点</text>
+          <text x="440" y="66" fill="#6d675d" font-size="20">复杂没有被翻译给新手</text>
+        </g>
+
+        <g transform="translate(0 344)">
+          <rect x="0" y="0" width="198" height="58" rx="8" fill="#151515"/>
+          <text x="230" y="38" fill="#6d675d" font-size="22" font-weight="650">最窄：完成下单</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(110 886)" font-family="Inter, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect x="0" y="-30" width="220" height="44" rx="22" fill="#151515"/>
+    <text x="24" y="-1" fill="#fbfaf6" font-size="16" font-weight="820" letter-spacing="1.6">ETF NEWCOMER</text>
+    <text x="250" y="0" fill="#6d675d" font-size="20">脱敏示意图 / 不含真实 App、Logo、用户数据或基金信息</text>
+  </g>
+</svg>
