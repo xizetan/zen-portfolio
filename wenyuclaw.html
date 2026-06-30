@@ -22,7 +22,6 @@
     <meta name="twitter:title" content="文语 Wenyu | Zen Portfolio" />
     <meta name="twitter:description" content="文语 Wenyu 项目详情：AI 驱动产品方法论实验，从产品定位、设计系统到官网部署上线。" />
     <meta name="twitter:image" content="https://xizetan.com/assets/og-cover.png" />
-    <script>document.documentElement.classList.add("js");</script>
     <style>
 :root {
   --ink: #111111;
@@ -731,16 +730,6 @@ h2 {
 .detail-page-wenyu .project-hero {
   grid-template-columns: minmax(0, 0.96fr) minmax(420px, 0.54fr);
   align-items: center;
-  padding-top: clamp(82px, 8vw, 108px);
-  padding-bottom: clamp(36px, 4vw, 54px);
-}
-
-.detail-page-wenyu .project-hero h1 {
-  font-size: clamp(48px, 6.4vw, 92px);
-}
-
-.detail-page-wenyu .back-link {
-  margin-bottom: clamp(28px, 4vw, 52px);
 }
 
 .project-hero-copy {
@@ -1881,20 +1870,10 @@ body.has-lightbox {
 }
 
 .brand-mark-large {
-  display: flex;
-  min-height: 116px;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.wenyu-logo-mark {
-  display: block;
-  width: clamp(96px, 8vw, 132px);
-  height: auto;
-}
-
-.brand-mark-large .wenyu-logo-mark {
-  width: clamp(124px, 10vw, 176px);
+  color: var(--accent-dark);
+  font-family: Georgia, serif;
+  font-size: clamp(82px, 10vw, 144px);
+  line-height: 0.8;
 }
 
 .brand-spec div:last-child {
@@ -2013,8 +1992,18 @@ body.has-lightbox {
 }
 
 .system-logo-demo {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--accent-dark);
+  font-family: Georgia, serif;
+  font-size: clamp(74px, 7vw, 118px);
+  line-height: 0.8;
+}
+
+.system-logo-demo b:last-child {
+  color: #00c9a7;
 }
 
 .system-token-demo {
@@ -2299,25 +2288,17 @@ body.has-lightbox {
   line-height: 1;
 }
 
-.js .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(22px);
   transition:
     opacity 700ms ease,
-    transform 700ms ease;
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.js .reveal.is-visible {
+.reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-@media print {
-  .js .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 }
 
 @media (max-width: 980px) {
@@ -2345,11 +2326,6 @@ body.has-lightbox {
 
   .detail-page-wenyu .project-hero {
     grid-template-columns: 1fr;
-  }
-
-  .detail-page-wenyu .project-hero-visual.visual-wenyu {
-    width: min(100%, 460px);
-    justify-self: start;
   }
 
   .hero {
@@ -2851,297 +2827,6 @@ body.has-lightbox {
 }
 </style>
   
-<style id="mobile-special-optimization">
-/* MOBILE-SPECIAL-OPTIMIZATION */
-.mobile-nav-toggle,
-.mobile-nav-panel {
-  display: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 82px;
-  }
-
-  body.mobile-nav-open {
-    overflow: hidden;
-  }
-
-  .site-header {
-    z-index: 60;
-    min-height: 72px;
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(251, 250, 246, 0.12);
-    background: rgba(17, 17, 17, 0.92);
-    color: var(--paper-bright);
-    mix-blend-mode: normal;
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-
-  .brand-mark {
-    position: relative;
-    z-index: 2;
-    color: var(--paper-bright);
-  }
-
-  .mobile-nav-toggle {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    width: 44px;
-    height: 44px;
-    place-content: center;
-    gap: 5px;
-    border: 1px solid rgba(251, 250, 246, 0.2);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--paper-bright);
-    cursor: pointer;
-  }
-
-  .mobile-nav-bar {
-    display: block;
-    width: 18px;
-    height: 1.5px;
-    border-radius: 999px;
-    background: currentColor;
-    transition: transform 180ms ease, opacity 180ms ease;
-  }
-
-  .mobile-nav-panel {
-    position: fixed;
-    top: 80px;
-    right: 12px;
-    left: 12px;
-    display: grid;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--paper-bright);
-    color: var(--ink);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
-    visibility: hidden;
-  }
-
-  .mobile-nav-panel a {
-    display: flex;
-    min-height: 54px;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--line);
-    padding: 0 18px;
-    font-size: 14px;
-    font-weight: 780;
-    text-transform: uppercase;
-  }
-
-  .mobile-nav-panel a::after {
-    content: "↗";
-    color: var(--accent-dark);
-    font-size: 16px;
-  }
-
-  .mobile-nav-panel a:last-child {
-    border-bottom: 0;
-  }
-
-  .mobile-nav-open .mobile-nav-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    visibility: visible;
-  }
-
-  .mobile-nav-open .mobile-nav-bar:nth-of-type(2) {
-    transform: translateY(3.25px) rotate(45deg);
-  }
-
-  .mobile-nav-open .mobile-nav-bar:nth-of-type(3) {
-    transform: translateY(-3.25px) rotate(-45deg);
-  }
-
-  main > section {
-    scroll-margin-top: 78px;
-  }
-
-  .section,
-  .detail-section,
-  .split-section,
-  .thesis-section,
-  .comparison-section,
-  .vms-section,
-  .design-system-section,
-  .artifact-section,
-  .website-artifact,
-  .decision-section,
-  .funnel-diagnosis {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
-  .hero {
-    gap: 30px;
-    padding: 102px 18px 26px;
-  }
-
-  .hero-footer {
-    gap: 20px;
-  }
-
-  .project-hero {
-    gap: 34px;
-    padding: 104px 18px 52px;
-  }
-
-  .project-hero h1 {
-    font-size: clamp(40px, 12vw, 50px);
-  }
-
-  .back-link {
-    min-height: 44px;
-    margin-bottom: 32px;
-  }
-
-  .project-hero-visual,
-  .project-hero-visual.visual-wenyu,
-  .project-hero-visual.visual-vendera,
-  .project-hero-visual.visual-etf {
-    min-height: 0;
-  }
-
-  .project-visual {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-  }
-
-  .overview-list div,
-  .timeline article,
-  .insight-grid article,
-  .artifact-card,
-  .system-evidence-grid article {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .image-compare {
-    width: min(100%, 340px);
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .funnel-stage-copy {
-    padding: 24px 20px;
-  }
-
-  .artifact-quick-links {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .artifact-quick-links a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    text-align: center;
-  }
-
-  .browser-frame iframe {
-    height: 480px;
-  }
-
-  .website-links a {
-    min-height: 104px;
-    padding: 18px;
-  }
-
-  .website-links strong {
-    font-size: 24px;
-  }
-
-  .vms-map-card img {
-    max-height: 300px;
-  }
-
-  .vms-module-grid img,
-  .ds-component-card img,
-  .ds-support-card img {
-    object-position: top center;
-  }
-
-  .next-project {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .next-project strong {
-    font-size: 32px;
-  }
-
-  .image-lightbox {
-    padding: 12px;
-  }
-
-  .image-lightbox-close {
-    top: 16px;
-    right: 16px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-@media (max-width: 390px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  .project-hero h1 {
-    font-size: 40px;
-  }
-
-  .section-heading h2,
-  .detail-heading h2,
-  .design-system-head h2,
-  .vms-head h2 {
-    font-size: 32px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-</style>
-
 <style id="wenyu-production-preview">
 .mobile-prototype-preview { display: none; }
 
@@ -3340,14 +3025,7 @@ body.has-lightbox {
             <article class="artifact-card">
               <span>Design System</span>
               <div class="brand-spec" aria-hidden="true">
-                <div class="brand-mark-large">
-                  <svg class="wenyu-logo-mark" viewBox="-50 -36 100 72" role="img" aria-label="文语彩色 Logo">
-                    <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="#1E5FBF"/>
-                    <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="#1E5FBF"/>
-                    <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="#00C9A7"/>
-                    <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="#00C9A7"/>
-                  </svg>
-                </div>
+                <div class="brand-mark-large">“ ”</div>
                 <div>
                   <i style="background: #1e5fbf"></i>
                   <i style="background: #00c9a7"></i>
@@ -3393,12 +3071,8 @@ body.has-lightbox {
               <article>
                 <span>01 / Brand Signal</span>
                 <div class="system-logo-demo" aria-hidden="true">
-                  <svg class="wenyu-logo-mark" viewBox="-50 -36 100 72">
-                    <path d="M -42 -28 L -42 4 Q -42 20 -26 20 L -26 4 L -31 4 Q -26 -1 -26 -12 L -26 -28 Z" fill="#1E5FBF"/>
-                    <path d="M -18 -28 L -18 4 Q -18 20 -2 20 L -2 4 L -7 4 Q -2 -1 -2 -12 L -2 -28 Z" fill="#1E5FBF"/>
-                    <path d="M 2 34 L 2 2 Q 2 -14 18 -14 L 18 2 L 13 2 Q 18 7 18 18 L 18 34 Z" fill="#00C9A7"/>
-                    <path d="M 26 34 L 26 2 Q 26 -14 42 -14 L 42 2 L 37 2 Q 42 7 42 18 L 42 34 Z" fill="#00C9A7"/>
-                  </svg>
+                  <b>“</b>
+                  <b>”</b>
                 </div>
                 <p>用一对引号承载“对话成为生产力”的核心意象，让品牌符号直接服务产品定位。</p>
               </article>
@@ -3537,24 +3211,19 @@ body.has-lightbox {
 const header = document.querySelector("[data-header]");
 const revealTargets = document.querySelectorAll(".reveal");
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.16 }
-  );
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.16 }
+);
 
-  revealTargets.forEach((target) => revealObserver.observe(target));
-} else {
-  document.documentElement.classList.remove("js");
-  revealTargets.forEach((target) => target.classList.add("is-visible"));
-}
+revealTargets.forEach((target) => revealObserver.observe(target));
 
 const updateHeader = () => {
   if (!header) return;
@@ -3793,72 +3462,6 @@ document.querySelectorAll("[data-funnel]").forEach((funnel) => {
   }, { threshold: 0.35 });
   wyObserver.observe(wyTranslate);
 })();
-</script>
-<script id="mobile-special-optimization-script">
-// MOBILE-SPECIAL-OPTIMIZATION
-document.querySelectorAll("img:not(.project-hero-image)").forEach((image) => {
-  if (!image.hasAttribute("loading")) image.setAttribute("loading", "lazy");
-  image.setAttribute("decoding", "async");
-});
-
-if (header && !header.querySelector(".mobile-nav-toggle")) {
-  const desktopNav = header.querySelector(".nav-links");
-
-  if (desktopNav) {
-    const toggle = document.createElement("button");
-    const panel = document.createElement("nav");
-
-    toggle.className = "mobile-nav-toggle";
-    toggle.type = "button";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-controls", "mobile-navigation");
-    toggle.setAttribute("aria-label", "打开导航");
-    toggle.title = "打开导航";
-    toggle.innerHTML = `
-      <span class="sr-only">打开导航</span>
-      <span class="mobile-nav-bar" aria-hidden="true"></span>
-      <span class="mobile-nav-bar" aria-hidden="true"></span>
-    `;
-
-    panel.className = "mobile-nav-panel";
-    panel.id = "mobile-navigation";
-    panel.setAttribute("aria-label", "移动端页面导航");
-    panel.setAttribute("aria-hidden", "true");
-    panel.innerHTML = desktopNav.innerHTML;
-
-    header.append(toggle, panel);
-
-    const setMobileNav = (open) => {
-      document.body.classList.toggle("mobile-nav-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
-      toggle.title = open ? "关闭导航" : "打开导航";
-      panel.setAttribute("aria-hidden", String(!open));
-    };
-
-    toggle.addEventListener("click", () => {
-      setMobileNav(!document.body.classList.contains("mobile-nav-open"));
-    });
-
-    panel.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMobileNav(false));
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setMobileNav(false);
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!document.body.classList.contains("mobile-nav-open")) return;
-      if (!header.contains(event.target)) setMobileNav(false);
-    });
-
-    window.matchMedia("(min-width: 641px)").addEventListener("change", (event) => {
-      if (event.matches) setMobileNav(false);
-    });
-  }
-}
-
 </script>
 </body>
 </html>
