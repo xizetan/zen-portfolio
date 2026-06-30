@@ -22,7 +22,6 @@
     <meta name="twitter:title" content="ETF Analysis | Zen Portfolio" />
     <meta name="twitter:description" content="ETF 新手场景产品分析：诊断某头部金融 App 的新手转化漏斗，并提出可验证优化建议。" />
     <meta name="twitter:image" content="https://xizetan.com/assets/og-cover.png" />
-    <script>document.documentElement.classList.add("js");</script>
     <style>
 :root {
   --ink: #111111;
@@ -743,21 +742,40 @@ h2 {
 }
 
 .back-link {
+  position: fixed;
+  top: 72px;
+  left: clamp(20px, 4vw, 56px);
+  z-index: 19;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: clamp(44px, 8vw, 94px);
-  color: rgba(251, 250, 246, 0.72);
-  font-size: 13px;
+  min-height: 36px;
+  padding: 9px 12px;
+  border: 1px solid rgba(251, 250, 246, 0.18);
+  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.86);
+  color: rgba(251, 250, 246, 0.82);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-size: 11px;
   font-weight: 760;
   text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
 }
 
 .back-link::before {
   content: "";
-  width: 34px;
+  width: 22px;
   height: 1px;
   background: currentColor;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  border-color: rgba(198, 161, 91, 0.72);
+  background: rgba(17, 17, 17, 0.96);
+  color: var(--gold);
 }
 
 .project-hero-visual {
@@ -1759,196 +1777,6 @@ body.has-lightbox {
   color: var(--muted);
 }
 
-.recommendation-section {
-  padding: clamp(82px, 10vw, 150px) clamp(20px, 4vw, 56px);
-}
-
-.recommendation-layout {
-  display: grid;
-  width: min(100%, var(--max));
-  grid-template-columns: minmax(260px, 0.56fr) minmax(0, 1fr);
-  gap: clamp(32px, 6vw, 84px);
-  align-items: start;
-  margin: 0 auto;
-  border-top: 1px solid var(--line);
-  padding-top: clamp(34px, 5vw, 64px);
-}
-
-.recommendation-intro h2 {
-  max-width: 620px;
-  margin: 0;
-  font-size: clamp(34px, 4.7vw, 66px);
-  line-height: 1.04;
-}
-
-.recommendation-intro > p:not(.eyebrow) {
-  max-width: 520px;
-  margin: 26px 0 0;
-  color: var(--muted);
-  font-size: clamp(16px, 1.45vw, 19px);
-  line-height: 1.78;
-}
-
-.recommendation-evidence {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--paper-bright);
-}
-
-.recommendation-evidence-head {
-  display: flex;
-  min-height: 72px;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 20px;
-}
-
-.recommendation-evidence-head > span {
-  margin-right: auto;
-  color: var(--accent-dark);
-  font-size: 12px;
-  font-weight: 850;
-  text-transform: uppercase;
-}
-
-.recommendation-evidence-head strong {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 7px 10px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 760;
-}
-
-.recommendation-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.recommendation-grid article {
-  min-height: 250px;
-  border-right: 1px solid var(--line);
-  padding: clamp(22px, 2.5vw, 30px);
-}
-
-.recommendation-grid article:last-child {
-  border-right: 0;
-}
-
-.recommendation-grid span,
-.recommendation-test span {
-  display: block;
-  margin-bottom: 28px;
-  color: var(--accent-dark);
-  font-size: 11px;
-  font-weight: 850;
-  text-transform: uppercase;
-}
-
-.recommendation-grid h3,
-.recommendation-test h3 {
-  margin: 0;
-  font-size: clamp(19px, 1.8vw, 25px);
-  line-height: 1.28;
-}
-
-.recommendation-grid p {
-  margin: 16px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.recommendation-test {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 48px);
-  padding: clamp(24px, 3vw, 36px);
-  background: var(--ink);
-  color: var(--paper-bright);
-}
-
-.recommendation-test span {
-  color: var(--accent);
-}
-
-.recommendation-test dl {
-  display: grid;
-  gap: 16px;
-  margin: 0;
-}
-
-.recommendation-test dl div {
-  display: grid;
-  grid-template-columns: 82px minmax(0, 1fr);
-  gap: 16px;
-  border-bottom: 1px solid var(--dark-line);
-  padding-bottom: 14px;
-}
-
-.recommendation-test dl div:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.recommendation-test dt {
-  color: rgba(251, 250, 246, 0.56);
-  font-size: 12px;
-  font-weight: 760;
-}
-
-.recommendation-test dd {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.recommendation-note {
-  margin: 0;
-  border-top: 1px solid var(--line);
-  padding: 14px 20px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-@media (max-width: 980px) {
-  .recommendation-layout,
-  .recommendation-test {
-    grid-template-columns: 1fr;
-  }
-
-  .recommendation-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .recommendation-grid article {
-    min-height: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .recommendation-grid article:last-child {
-    border-bottom: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .recommendation-section {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
-  .recommendation-test dl div {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-}
-
 .insight-grid {
   grid-column: 1 / -1;
   display: grid;
@@ -2562,25 +2390,17 @@ body.has-lightbox {
   line-height: 1;
 }
 
-.js .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(22px);
   transition:
     opacity 700ms ease,
-    transform 700ms ease;
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.js .reveal.is-visible {
+.reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-@media print {
-  .js .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 }
 
 @media (max-width: 980px) {
@@ -2829,7 +2649,14 @@ body.has-lightbox {
 
   .project-hero {
     min-height: auto;
-    padding-top: 92px;
+    padding-top: 126px;
+  }
+
+  .back-link {
+    top: 64px;
+    left: 18px;
+    min-height: 34px;
+    padding: 8px 10px;
   }
 
   .project-hero h1 {
@@ -3004,298 +2831,7 @@ body.has-lightbox {
 }
 
 </style>
-  
-<style id="mobile-special-optimization">
-/* MOBILE-SPECIAL-OPTIMIZATION */
-.mobile-nav-toggle,
-.mobile-nav-panel {
-  display: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 82px;
-  }
-
-  body.mobile-nav-open {
-    overflow: hidden;
-  }
-
-  .site-header {
-    z-index: 60;
-    min-height: 72px;
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(251, 250, 246, 0.12);
-    background: rgba(17, 17, 17, 0.92);
-    color: var(--paper-bright);
-    mix-blend-mode: normal;
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-
-  .brand-mark {
-    position: relative;
-    z-index: 2;
-    color: var(--paper-bright);
-  }
-
-  .mobile-nav-toggle {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    width: 44px;
-    height: 44px;
-    place-content: center;
-    gap: 5px;
-    border: 1px solid rgba(251, 250, 246, 0.2);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--paper-bright);
-    cursor: pointer;
-  }
-
-  .mobile-nav-bar {
-    display: block;
-    width: 18px;
-    height: 1.5px;
-    border-radius: 999px;
-    background: currentColor;
-    transition: transform 180ms ease, opacity 180ms ease;
-  }
-
-  .mobile-nav-panel {
-    position: fixed;
-    top: 80px;
-    right: 12px;
-    left: 12px;
-    display: grid;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--paper-bright);
-    color: var(--ink);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
-    visibility: hidden;
-  }
-
-  .mobile-nav-panel a {
-    display: flex;
-    min-height: 54px;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--line);
-    padding: 0 18px;
-    font-size: 14px;
-    font-weight: 780;
-    text-transform: uppercase;
-  }
-
-  .mobile-nav-panel a::after {
-    content: "↗";
-    color: var(--accent-dark);
-    font-size: 16px;
-  }
-
-  .mobile-nav-panel a:last-child {
-    border-bottom: 0;
-  }
-
-  .mobile-nav-open .mobile-nav-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    visibility: visible;
-  }
-
-  .mobile-nav-open .mobile-nav-bar:nth-of-type(2) {
-    transform: translateY(3.25px) rotate(45deg);
-  }
-
-  .mobile-nav-open .mobile-nav-bar:nth-of-type(3) {
-    transform: translateY(-3.25px) rotate(-45deg);
-  }
-
-  main > section {
-    scroll-margin-top: 78px;
-  }
-
-  .section,
-  .detail-section,
-  .split-section,
-  .thesis-section,
-  .comparison-section,
-  .vms-section,
-  .design-system-section,
-  .artifact-section,
-  .website-artifact,
-  .decision-section,
-  .funnel-diagnosis {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
-  .hero {
-    gap: 30px;
-    padding: 102px 18px 26px;
-  }
-
-  .hero-footer {
-    gap: 20px;
-  }
-
-  .project-hero {
-    gap: 34px;
-    padding: 104px 18px 52px;
-  }
-
-  .project-hero h1 {
-    font-size: clamp(40px, 12vw, 50px);
-  }
-
-  .back-link {
-    min-height: 44px;
-    margin-bottom: 32px;
-  }
-
-  .project-hero-visual,
-  .project-hero-visual.visual-wenyu,
-  .project-hero-visual.visual-vendera,
-  .project-hero-visual.visual-etf {
-    min-height: 0;
-  }
-
-  .project-visual {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-  }
-
-  .overview-list div,
-  .timeline article,
-  .insight-grid article,
-  .artifact-card,
-  .system-evidence-grid article {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .image-compare {
-    width: min(100%, 340px);
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .funnel-stage-copy {
-    padding: 24px 20px;
-  }
-
-  .artifact-quick-links {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .artifact-quick-links a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    text-align: center;
-  }
-
-  .browser-frame iframe {
-    height: 480px;
-  }
-
-  .website-links a {
-    min-height: 104px;
-    padding: 18px;
-  }
-
-  .website-links strong {
-    font-size: 24px;
-  }
-
-  .vms-map-card img {
-    max-height: 300px;
-  }
-
-  .vms-module-grid img,
-  .ds-component-card img,
-  .ds-support-card img {
-    object-position: top center;
-  }
-
-  .next-project {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .next-project strong {
-    font-size: 32px;
-  }
-
-  .image-lightbox {
-    padding: 12px;
-  }
-
-  .image-lightbox-close {
-    top: 16px;
-    right: 16px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-@media (max-width: 390px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  .project-hero h1 {
-    font-size: 40px;
-  }
-
-  .section-heading h2,
-  .detail-heading h2,
-  .design-system-head h2,
-  .vms-head h2 {
-    font-size: 32px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-</style>
-</head>
+  </head>
   <body>
     <div class="page-shell detail-page">
       <header class="site-header" data-header>
@@ -3312,8 +2848,8 @@ body.has-lightbox {
 
       <main>
         <section class="project-hero section-dark">
+          <a class="back-link" href="index.html#work">Back to work</a>
           <div class="project-hero-copy reveal">
-            <a class="back-link" href="index.html#work">Back to work</a>
             <p class="eyebrow">02 / Financial Product Analysis</p>
             <h1>
               <span>ETF 新手场景</span>
@@ -3324,7 +2860,7 @@ body.has-lightbox {
             </p>
           </div>
           <div class="project-hero-visual visual-etf reveal" aria-hidden="true">
-            <img class="project-hero-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5FVEYg5paw5omL6L2s5YyW5ryP5paX6ISx5pWP56S65oSP5Zu+PC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+5bGV56S6IEVURiDmlrDmiYvku47lhaXlj6Pmm53lhYnjgIHor6bmg4XmtY/op4jjgIHpo47pmanorqTnn6XliLDkuIvljZXovazljJbnmoTlm5vlsYLmvI/mlpfvvIzlubbmoIflh7rpo47pmanorqTnn6XkuLrkuLvopoHmtYHlpLHngrnjgII8L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZiZmFmNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZWU5ZGYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIwIiB4Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Q2YjE1ZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM5YjcwMWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzb2Z0U2hhZG93IiB4PSItMjAlIiB5PSItMzAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjE4IiBzdGREZXZpYXRpb249IjI0IiBmbG9vZC1jb2xvcj0iIzExMTExMSIgZmxvb2Qtb3BhY2l0eT0iMC4xNiIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iMTYwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSJ1cmwoI3BhcGVyKSIvPgogIDxwYXRoIGQ9Ik0tODAgODYwIEMyNjAgNzIwIDUwMCA5MDAgODEwIDc1MCBDMTA4MCA2MTggMTI3MCA2OTAgMTY4MCA1MjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Q3YzhhNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjQyIi8+CiAgPHBhdGggZD0iTS02MCAyMTAgQzI4MCA5MCA1MjAgMjYwIDc5MCAxNzAgQzEwMzAgOTAgMTI2MCAxMjYgMTY2MCA1NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExMTExIiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC4wOCIvPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAgOTIpIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZpbGw9IiMxMTExMTEiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iMiI+QU5PTllNSVpFRCBGVU5ORUwgTUFQPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNzgiIGZpbGw9IiMxMTExMTEiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iODUwIj5FVEYg5paw5omL6L2s5YyW5ryP5paXPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iMTMwIiBmaWxsPSIjNmQ2NzVkIiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsLCAnUGluZ0ZhbmcgU0MnLCAnTWljcm9zb2Z0IFlhSGVpJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNiIgZm9udC13ZWlnaHQ9IjUwMCI+5Li76KaB5rWB5aSx54K55LiN5piv5YWl5Y+j5LiN6Laz77yM6ICM5piv5aSN5p2C5L+h5oGv5rKh5pyJ5Zyo5YWz6ZSu5pe25Yi76KKr57+76K+R57uZ5paw5omL44CCPC90ZXh0PgogIDwvZz4KCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEwIDI5MikiIGZpbHRlcj0idXJsKCNzb2Z0U2hhZG93KSI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI1NDAiIHJ4PSIxOCIgZmlsbD0iI2ZiZmFmNiIgc3Ryb2tlPSIjZDFjOGI3Ii8+CiAgICA8bGluZSB4MT0iMzQ0IiB5MT0iNzQiIHgyPSIzNDQiIHkyPSI0NjgiIHN0cm9rZT0iI2QxYzhiNyIvPgoKICAgIDxnIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIj4KICAgICAgPHRleHQgeD0iNTIiIHk9Ijc0IiBmaWxsPSIjODc3NzQ3IiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iODUwIiBsZXR0ZXItc3BhY2luZz0iMS44Ij5GT1VSLUxBWUVSIEZVTk5FTDwvdGV4dD4KICAgICAgPHRleHQgeD0iNTIiIHk9IjExOCIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9IjgyMCI+5Zub5bGC5paw5omL5peF56iLPC90ZXh0PgogICAgICA8dGV4dCB4PSI1MiIgeT0iMTY0IiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjE5Ij7nlKjnpLrmhI/lm77ku6Pmm7/ljp8gQXBwIOaIquWbvjwvdGV4dD4KICAgICAgPHRleHQgeD0iNTIiIHk9IjE5MiIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIxOSI+5L+d55WZ5ryP5paX5b2i54q25LiO5rWB5aSx5L2N572uPC90ZXh0PgoKICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTIgMjU4KSIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9Ijc2MCI+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMCI+5YWl5Y+j5pud5YWJPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjAiIHk9Ijc2Ij7or6bmg4XmtY/op4g8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMTUyIiBmaWxsPSIjOWI3MDFjIj7po47pmanorqTnn6U8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMjI4Ij7kuIvljZXovazljJY8L3RleHQ+CiAgICAgIDwvZz4KCiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwMiAyNDQpIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS13aWR0aD0iMi40IiBvcGFjaXR5PSIwLjQ4Ij4KICAgICAgICA8cGF0aCBkPSJNMCAxNCBMMCA0MiIvPgogICAgICAgIDxwYXRoIGQ9Ik0tMTAgMzIgTDAgNDIgTDEwIDMyIi8+CiAgICAgICAgPHBhdGggZD0iTTAgOTAgTDAgMTE4Ii8+CiAgICAgICAgPHBhdGggZD0iTS0xMCAxMDggTDAgMTE4IEwxMCAxMDgiLz4KICAgICAgICA8cGF0aCBkPSJNMCAxNjYgTDAgMTk0Ii8+CiAgICAgICAgPHBhdGggZD0iTS0xMCAxODQgTDAgMTk0IEwxMCAxODQiLz4KICAgICAgPC9nPgoKICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDI1IDgwKSI+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMCIgZmlsbD0iIzg3Nzc0NyIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9Ijg1MCIgbGV0dGVyLXNwYWNpbmc9IjEuOCI+UkVMQVRJVkUgQ09OVkVSU0lPTiBXSURUSDwvdGV4dD4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA0NCkiPgogICAgICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijc4MCIgaGVpZ2h0PSI1OCIgcng9IjgiIGZpbGw9IiMxNTE1MTUiLz4KICAgICAgICAgIDx0ZXh0IHg9IjgxMiIgeT0iMzgiIGZpbGw9IiM2ZDY3NWQiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2NTAiPuacgOWuve+8muWFpeWPo+iDveeci+WIsDwvdGV4dD4KICAgICAgICA8L2c+CgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTQ0KSI+CiAgICAgICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjU4IiByeD0iOCIgZmlsbD0iIzJmMmYyZiIvPgogICAgICAgICAgPHRleHQgeD0iNjIwIiB5PSIzOCIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjY1MCI+57un57ut5rWP6KeI6K+m5oOFPC90ZXh0PgogICAgICAgIDwvZz4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyNDQpIj4KICAgICAgICAgIDxyZWN0IHg9IjAiIHk9Ii03IiB3aWR0aD0iMzkyIiBoZWlnaHQ9IjcyIiByeD0iMTAiIGZpbGw9InVybCgjZ29sZCkiLz4KICAgICAgICAgIDxyZWN0IHg9Ii0xNCIgeT0iLTIxIiB3aWR0aD0iNDIwIiBoZWlnaHQ9IjEwMCIgcng9IjE2IiBmaWxsPSJub25lIiBzdHJva2U9IiM5YjcwMWMiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICAgICAgPHRleHQgeD0iNDQwIiB5PSIzMCIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjgyMCI+5Li76KaB5rWB5aSx54K5PC90ZXh0PgogICAgICAgICAgPHRleHQgeD0iNDQwIiB5PSI2NiIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIyMCI+5aSN5p2C5rKh5pyJ6KKr57+76K+R57uZ5paw5omLPC90ZXh0PgogICAgICAgIDwvZz4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzNDQpIj4KICAgICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxOTgiIGhlaWdodD0iNTgiIHJ4PSI4IiBmaWxsPSIjMTUxNTE1Ii8+CiAgICAgICAgICA8dGV4dCB4PSIyMzAiIHk9IjM4IiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNjUwIj7mnIDnqoTvvJrlrozmiJDkuIvljZU8L3RleHQ+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTAgODg2KSIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCwgJ1BpbmdGYW5nIFNDJywgJ01pY3Jvc29mdCBZYUhlaScsIHNhbnMtc2VyaWYiPgogICAgPHJlY3QgeD0iMCIgeT0iLTMwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjQ0IiByeD0iMjIiIGZpbGw9IiMxNTE1MTUiLz4KICAgIDx0ZXh0IHg9IjI0IiB5PSItMSIgZmlsbD0iI2ZiZmFmNiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjgyMCIgbGV0dGVyLXNwYWNpbmc9IjEuNiI+RVRGIE5FV0NPTUVSPC90ZXh0PgogICAgPHRleHQgeD0iMjUwIiB5PSIwIiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjIwIj7ohLHmlY/npLrmhI/lm74gLyDkuI3lkKvnnJ/lrp4gQXBw44CBTG9nb+OAgeeUqOaIt+aVsOaNruaIluWfuumHkeS/oeaBrzwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="" loading="eager">
+            <img class="project-hero-image" src="assets/etf-funnel.svg" alt="" loading="eager" decoding="async" fetchpriority="high">
           </div>
         </section>
 
@@ -3375,9 +2911,9 @@ body.has-lightbox {
             <figure class="funnel-diagram" style="--focus-x: 58%; --focus-y: 62%;">
               <img
                 class="funnel-diagram-image"
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5FVEYg5paw5omL6L2s5YyW5ryP5paX6ISx5pWP56S65oSP5Zu+PC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+5bGV56S6IEVURiDmlrDmiYvku47lhaXlj6Pmm53lhYnjgIHor6bmg4XmtY/op4jjgIHpo47pmanorqTnn6XliLDkuIvljZXovazljJbnmoTlm5vlsYLmvI/mlpfvvIzlubbmoIflh7rpo47pmanorqTnn6XkuLrkuLvopoHmtYHlpLHngrnjgII8L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InBhcGVyIiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZiZmFmNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZWU5ZGYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIwIiB4Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Q2YjE1ZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM5YjcwMWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzb2Z0U2hhZG93IiB4PSItMjAlIiB5PSItMzAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjE4IiBzdGREZXZpYXRpb249IjI0IiBmbG9vZC1jb2xvcj0iIzExMTExMSIgZmxvb2Qtb3BhY2l0eT0iMC4xNiIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iMTYwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSJ1cmwoI3BhcGVyKSIvPgogIDxwYXRoIGQ9Ik0tODAgODYwIEMyNjAgNzIwIDUwMCA5MDAgODEwIDc1MCBDMTA4MCA2MTggMTI3MCA2OTAgMTY4MCA1MjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Q3YzhhNyIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjQyIi8+CiAgPHBhdGggZD0iTS02MCAyMTAgQzI4MCA5MCA1MjAgMjYwIDc5MCAxNzAgQzEwMzAgOTAgMTI2MCAxMjYgMTY2MCA1NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExMTExIiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC4wOCIvPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAgOTIpIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZpbGw9IiMxMTExMTEiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iMiI+QU5PTllNSVpFRCBGVU5ORUwgTUFQPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNzgiIGZpbGw9IiMxMTExMTEiIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iODUwIj5FVEYg5paw5omL6L2s5YyW5ryP5paXPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iMTMwIiBmaWxsPSIjNmQ2NzVkIiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsLCAnUGluZ0ZhbmcgU0MnLCAnTWljcm9zb2Z0IFlhSGVpJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNiIgZm9udC13ZWlnaHQ9IjUwMCI+5Li76KaB5rWB5aSx54K55LiN5piv5YWl5Y+j5LiN6Laz77yM6ICM5piv5aSN5p2C5L+h5oGv5rKh5pyJ5Zyo5YWz6ZSu5pe25Yi76KKr57+76K+R57uZ5paw5omL44CCPC90ZXh0PgogIDwvZz4KCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEwIDI5MikiIGZpbHRlcj0idXJsKCNzb2Z0U2hhZG93KSI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI1NDAiIHJ4PSIxOCIgZmlsbD0iI2ZiZmFmNiIgc3Ryb2tlPSIjZDFjOGI3Ii8+CiAgICA8bGluZSB4MT0iMzQ0IiB5MT0iNzQiIHgyPSIzNDQiIHkyPSI0NjgiIHN0cm9rZT0iI2QxYzhiNyIvPgoKICAgIDxnIGZvbnQtZmFtaWx5PSJJbnRlciwgQXJpYWwsICdQaW5nRmFuZyBTQycsICdNaWNyb3NvZnQgWWFIZWknLCBzYW5zLXNlcmlmIj4KICAgICAgPHRleHQgeD0iNTIiIHk9Ijc0IiBmaWxsPSIjODc3NzQ3IiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iODUwIiBsZXR0ZXItc3BhY2luZz0iMS44Ij5GT1VSLUxBWUVSIEZVTk5FTDwvdGV4dD4KICAgICAgPHRleHQgeD0iNTIiIHk9IjExOCIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIzNiIgZm9udC13ZWlnaHQ9IjgyMCI+5Zub5bGC5paw5omL5peF56iLPC90ZXh0PgogICAgICA8dGV4dCB4PSI1MiIgeT0iMTY0IiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjE5Ij7nlKjnpLrmhI/lm77ku6Pmm7/ljp8gQXBwIOaIquWbvjwvdGV4dD4KICAgICAgPHRleHQgeD0iNTIiIHk9IjE5MiIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIxOSI+5L+d55WZ5ryP5paX5b2i54q25LiO5rWB5aSx5L2N572uPC90ZXh0PgoKICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTIgMjU4KSIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9Ijc2MCI+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMCI+5YWl5Y+j5pud5YWJPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjAiIHk9Ijc2Ij7or6bmg4XmtY/op4g8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMTUyIiBmaWxsPSIjOWI3MDFjIj7po47pmanorqTnn6U8L3RleHQ+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMjI4Ij7kuIvljZXovazljJY8L3RleHQ+CiAgICAgIDwvZz4KCiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwMiAyNDQpIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS13aWR0aD0iMi40IiBvcGFjaXR5PSIwLjQ4Ij4KICAgICAgICA8cGF0aCBkPSJNMCAxNCBMMCA0MiIvPgogICAgICAgIDxwYXRoIGQ9Ik0tMTAgMzIgTDAgNDIgTDEwIDMyIi8+CiAgICAgICAgPHBhdGggZD0iTTAgOTAgTDAgMTE4Ii8+CiAgICAgICAgPHBhdGggZD0iTS0xMCAxMDggTDAgMTE4IEwxMCAxMDgiLz4KICAgICAgICA8cGF0aCBkPSJNMCAxNjYgTDAgMTk0Ii8+CiAgICAgICAgPHBhdGggZD0iTS0xMCAxODQgTDAgMTk0IEwxMCAxODQiLz4KICAgICAgPC9nPgoKICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDI1IDgwKSI+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMCIgZmlsbD0iIzg3Nzc0NyIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9Ijg1MCIgbGV0dGVyLXNwYWNpbmc9IjEuOCI+UkVMQVRJVkUgQ09OVkVSU0lPTiBXSURUSDwvdGV4dD4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA0NCkiPgogICAgICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijc4MCIgaGVpZ2h0PSI1OCIgcng9IjgiIGZpbGw9IiMxNTE1MTUiLz4KICAgICAgICAgIDx0ZXh0IHg9IjgxMiIgeT0iMzgiIGZpbGw9IiM2ZDY3NWQiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI2NTAiPuacgOWuve+8muWFpeWPo+iDveeci+WIsDwvdGV4dD4KICAgICAgICA8L2c+CgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTQ0KSI+CiAgICAgICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTg4IiBoZWlnaHQ9IjU4IiByeD0iOCIgZmlsbD0iIzJmMmYyZiIvPgogICAgICAgICAgPHRleHQgeD0iNjIwIiB5PSIzOCIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjY1MCI+57un57ut5rWP6KeI6K+m5oOFPC90ZXh0PgogICAgICAgIDwvZz4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyNDQpIj4KICAgICAgICAgIDxyZWN0IHg9IjAiIHk9Ii03IiB3aWR0aD0iMzkyIiBoZWlnaHQ9IjcyIiByeD0iMTAiIGZpbGw9InVybCgjZ29sZCkiLz4KICAgICAgICAgIDxyZWN0IHg9Ii0xNCIgeT0iLTIxIiB3aWR0aD0iNDIwIiBoZWlnaHQ9IjEwMCIgcng9IjE2IiBmaWxsPSJub25lIiBzdHJva2U9IiM5YjcwMWMiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICAgICAgPHRleHQgeD0iNDQwIiB5PSIzMCIgZmlsbD0iIzExMTExMSIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjgyMCI+5Li76KaB5rWB5aSx54K5PC90ZXh0PgogICAgICAgICAgPHRleHQgeD0iNDQwIiB5PSI2NiIgZmlsbD0iIzZkNjc1ZCIgZm9udC1zaXplPSIyMCI+5aSN5p2C5rKh5pyJ6KKr57+76K+R57uZ5paw5omLPC90ZXh0PgogICAgICAgIDwvZz4KCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzNDQpIj4KICAgICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxOTgiIGhlaWdodD0iNTgiIHJ4PSI4IiBmaWxsPSIjMTUxNTE1Ii8+CiAgICAgICAgICA8dGV4dCB4PSIyMzAiIHk9IjM4IiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNjUwIj7mnIDnqoTvvJrlrozmiJDkuIvljZU8L3RleHQ+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTAgODg2KSIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCwgJ1BpbmdGYW5nIFNDJywgJ01pY3Jvc29mdCBZYUhlaScsIHNhbnMtc2VyaWYiPgogICAgPHJlY3QgeD0iMCIgeT0iLTMwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjQ0IiByeD0iMjIiIGZpbGw9IiMxNTE1MTUiLz4KICAgIDx0ZXh0IHg9IjI0IiB5PSItMSIgZmlsbD0iI2ZiZmFmNiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjgyMCIgbGV0dGVyLXNwYWNpbmc9IjEuNiI+RVRGIE5FV0NPTUVSPC90ZXh0PgogICAgPHRleHQgeD0iMjUwIiB5PSIwIiBmaWxsPSIjNmQ2NzVkIiBmb250LXNpemU9IjIwIj7ohLHmlY/npLrmhI/lm74gLyDkuI3lkKvnnJ/lrp4gQXBw44CBTG9nb+OAgeeUqOaIt+aVsOaNruaIluWfuumHkeS/oeaBrzwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo="
+                src="assets/etf-funnel.svg"
                 alt="ETF 新手转化漏斗脱敏示意图"
-              >
+               decoding="async" loading="lazy">
               <span class="funnel-focus-dot" aria-hidden="true"></span>
               <figcaption>脱敏示意图 / 不含真实 App、Logo、用户数据或基金信息</figcaption>
             </figure>
@@ -3434,65 +2970,6 @@ body.has-lightbox {
           </div>
         </section>
 
-        <section class="recommendation-section section-light" aria-labelledby="recommendation-title">
-          <div class="recommendation-layout">
-            <div class="recommendation-intro reveal">
-              <p class="eyebrow">Sanitized Recommendation</p>
-              <h2 id="recommendation-title">把风险信息从“合规提示”变成“决策辅助”。</h2>
-              <p>
-                以下展示 3 条建议中的 1 条脱敏示例。它保留问题、方案、优先级和验证方式，不包含真实 App 页面、业务数据或基金信息。
-              </p>
-            </div>
-
-            <article class="recommendation-evidence reveal">
-              <header class="recommendation-evidence-head">
-                <span>Recommendation 01 / 03</span>
-                <strong>影响：高</strong>
-                <strong>成本：中</strong>
-              </header>
-
-              <div class="recommendation-grid">
-                <article>
-                  <span>Problem</span>
-                  <h3>用户看到了风险，却不知道它和自己有什么关系。</h3>
-                </article>
-                <article>
-                  <span>Product Move</span>
-                  <h3>在关键节点加入“这对你意味着什么”的翻译层。</h3>
-                  <p>保留完整风险披露，同时用波动感受、适合人群和持有预期辅助用户判断。</p>
-                </article>
-                <article>
-                  <span>Why It May Work</span>
-                  <h3>减少从专业指标到个人决策之间的认知跳跃。</h3>
-                </article>
-              </div>
-
-              <div class="recommendation-test">
-                <div>
-                  <span>A/B Test</span>
-                  <h3>现有详情页 vs. 决策语言版详情页</h3>
-                </div>
-                <dl>
-                  <div>
-                    <dt>主指标</dt>
-                    <dd>风险模块后的下一步点击率</dd>
-                  </div>
-                  <div>
-                    <dt>辅助指标</dt>
-                    <dd>首次下单转化率、7 日 ETF 再访问率</dd>
-                  </div>
-                  <div>
-                    <dt>护栏指标</dt>
-                    <dd>风险提示确认率与风险相关反馈</dd>
-                  </div>
-                </dl>
-              </div>
-
-              <p class="recommendation-note">验证设计示意 / 不代表真实上线结果，完整报告可在面试中提供。</p>
-            </article>
-          </div>
-        </section>
-
         <section class="detail-section section-light">
           <div class="detail-heading reveal">
             <p class="eyebrow">Finding</p>
@@ -3538,24 +3015,19 @@ body.has-lightbox {
 const header = document.querySelector("[data-header]");
 const revealTargets = document.querySelectorAll(".reveal");
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.16 }
-  );
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.16 }
+);
 
-  revealTargets.forEach((target) => revealObserver.observe(target));
-} else {
-  document.documentElement.classList.remove("js");
-  revealTargets.forEach((target) => target.classList.add("is-visible"));
-}
+revealTargets.forEach((target) => revealObserver.observe(target));
 
 const updateHeader = () => {
   if (!header) return;
@@ -3598,7 +3070,7 @@ if (lightboxImages.length) {
   lightbox.innerHTML = `
     <button class="image-lightbox-close" type="button" aria-label="Close image preview">Close</button>
     <figure class="image-lightbox-frame">
-      <img alt="" />
+      <img alt="" / decoding="async" loading="lazy">
       <figcaption></figcaption>
     </figure>
   `;
@@ -3765,72 +3237,5 @@ document.querySelectorAll("[data-funnel]").forEach((funnel) => {
 });
 
 </script>
-  
-<script id="mobile-special-optimization-script">
-// MOBILE-SPECIAL-OPTIMIZATION
-document.querySelectorAll("img:not(.project-hero-image)").forEach((image) => {
-  if (!image.hasAttribute("loading")) image.setAttribute("loading", "lazy");
-  image.setAttribute("decoding", "async");
-});
-
-if (header && !header.querySelector(".mobile-nav-toggle")) {
-  const desktopNav = header.querySelector(".nav-links");
-
-  if (desktopNav) {
-    const toggle = document.createElement("button");
-    const panel = document.createElement("nav");
-
-    toggle.className = "mobile-nav-toggle";
-    toggle.type = "button";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-controls", "mobile-navigation");
-    toggle.setAttribute("aria-label", "打开导航");
-    toggle.title = "打开导航";
-    toggle.innerHTML = `
-      <span class="sr-only">打开导航</span>
-      <span class="mobile-nav-bar" aria-hidden="true"></span>
-      <span class="mobile-nav-bar" aria-hidden="true"></span>
-    `;
-
-    panel.className = "mobile-nav-panel";
-    panel.id = "mobile-navigation";
-    panel.setAttribute("aria-label", "移动端页面导航");
-    panel.setAttribute("aria-hidden", "true");
-    panel.innerHTML = desktopNav.innerHTML;
-
-    header.append(toggle, panel);
-
-    const setMobileNav = (open) => {
-      document.body.classList.toggle("mobile-nav-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
-      toggle.title = open ? "关闭导航" : "打开导航";
-      panel.setAttribute("aria-hidden", String(!open));
-    };
-
-    toggle.addEventListener("click", () => {
-      setMobileNav(!document.body.classList.contains("mobile-nav-open"));
-    });
-
-    panel.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMobileNav(false));
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setMobileNav(false);
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!document.body.classList.contains("mobile-nav-open")) return;
-      if (!header.contains(event.target)) setMobileNav(false);
-    });
-
-    window.matchMedia("(min-width: 641px)").addEventListener("change", (event) => {
-      if (event.matches) setMobileNav(false);
-    });
-  }
-}
-
-</script>
-</body>
+  </body>
 </html>
